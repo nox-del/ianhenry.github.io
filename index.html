@@ -9,27 +9,29 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #2193b0, #6dd5ed);
-      color: white;
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      color: #f5f5f5;
       text-align: center;
     }
     .container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 20px;
     }
     .profile-pic {
       margin: 20px auto;
-      width: 150px;
-      height: 150px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
       background: url('https://i.imgur.com/5Lbckqd.png') no-repeat center/cover;
-      border: 3px solid white;
+      border: 4px solid #ffffff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       animation: fadeIn 2s ease-in-out;
     }
     h1 {
       margin-top: 10px;
-      font-size: 28px;
+      font-size: 34px;
+      color: #ffffff;
     }
     p {
       font-size: 18px;
@@ -37,30 +39,40 @@
     .button {
       display: inline-block;
       margin: 15px;
-      padding: 12px 24px;
+      padding: 12px 28px;
       background-color: #25D366;
       color: white;
       border: none;
-      border-radius: 4px;
+      border-radius: 6px;
       text-decoration: none;
-      font-size: 16px;
-      transition: background-color 0.3s ease;
+      font-size: 18px;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
     .button:hover {
       background-color: #128C7E;
+      transform: scale(1.05);
     }
     section {
-      padding: 40px 20px;
+      padding: 50px 20px;
       animation: fadeInUp 1s ease;
+      background-color: rgba(255,255,255,0.05);
+      margin: 20px 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
     .section-title {
-      font-size: 24px;
+      font-size: 26px;
       margin-bottom: 20px;
-      text-decoration: underline;
+      color: #ffffff;
+      border-bottom: 2px solid #ffffff44;
+      display: inline-block;
+      padding-bottom: 6px;
     }
     .social-links a {
       display: inline-block;
-      margin: 0 10px;
+      margin: 0 12px;
       color: white;
       font-size: 24px;
       text-decoration: none;
@@ -83,7 +95,7 @@
         height: 120px;
       }
       h1 {
-        font-size: 22px;
+        font-size: 24px;
       }
       p, .button {
         font-size: 16px;
@@ -104,17 +116,17 @@
     <section id="about">
       <h2 class="section-title">About Me</h2>
       <p>
-        Hi, I'm Ian Henry, a passionate technologist and innovator. I love building software, designing modern websites, and helping people harness the power of digital tools.
+        I'm Ian Henry, a passionate innovator and technologist based in Matungu, Kenya. I specialize in developing creative solutions in technology, offering guidance and services in web development, mobile tech, and digital strategy.
       </p>
     </section>
 
     <section id="services">
       <h2 class="section-title">Services</h2>
       <p>
-        ✔ Custom Websites & Mobile Apps<br>
-        ✔ IT Consultancy & Training<br>
-        ✔ Digital Marketing & Branding<br>
-        ✔ Tech Support & Solutions
+        ✅ Custom Websites & Mobile Apps<br>
+        ✅ IT Consultancy & Training<br>
+        ✅ Digital Marketing & Branding<br>
+        ✅ Tech Support & Solutions
       </p>
     </section>
 
@@ -123,7 +135,7 @@
       <p>
         📞 Phone: +254701320114<br>
         📧 Email: ianhenry000@gmail.com<br>
-        🌍 Nairobi, Kenya
+        📍 Location: Nairobi, Kenya
       </p>
     </section>
 
@@ -131,7 +143,7 @@
       <h2 class="section-title">Follow Me</h2>
       <div class="social-links">
         <a href="https://facebook.com/" target="_blank">🌐 Facebook</a>
-        <a href="https://instagram.com/" target="_blank">📷 Instagram</a>
+        <a href="https://twitter.com/" target="_blank">🐦 Twitter</a>
       </div>
     </section>
   </div>
