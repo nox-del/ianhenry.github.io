@@ -6,55 +6,86 @@
   <title>Ian Henry | Tech Innovations</title>
   <style>
     body {
-      background-color: #2196F3; /* Blue background */
-      color: white;
       font-family: Arial, sans-serif;
-      text-align: center;
       margin: 0;
       padding: 0;
+      background: linear-gradient(135deg, #2193b0, #6dd5ed);
+      color: white;
+      text-align: center;
     }
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-    img {
+    .profile-pic {
+      margin: 20px auto;
       width: 150px;
       height: 150px;
       border-radius: 50%;
-      object-fit: cover;
+      background: url('https://i.imgur.com/5Lbckqd.png') no-repeat center/cover;
       border: 3px solid white;
-      margin-bottom: 20px;
     }
     h1 {
-      font-size: 24px;
-      margin: 10px 0;
-    }
-    p {
-      font-size: 16px;
-      margin: 5px 0 20px 0;
+      margin-top: 10px;
     }
     .button {
-      background-color: #25D366; /* WhatsApp green */
-      color: white;
+      display: inline-block;
+      margin: 15px;
       padding: 12px 24px;
-      text-decoration: none;
+      background-color: #25D366;
+      color: white;
+      border: none;
       border-radius: 4px;
+      text-decoration: none;
       font-size: 16px;
     }
-    .button:hover {
-      background-color: #128C7E;
+    section {
+      padding: 40px 20px;
+    }
+    .section-title {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="https://i.imgur.com/5Lbckqd.png" alt="Profile Photo">
-    <h1>Welcome to Ian Henry's Official Web Page</h1>
-    <p>I provide tech innovations</p>
-    <a class="button" href="https://wa.me/254701320114" target="_blank">Chat on WhatsApp</a>
-  </div>
+  <div class="profile-pic"></div>
+  <h1>Welcome to Ian Henry's Official Web Page</h1>
+  <p>I provide tech innovations</p>
+  <a href="https://wa.me/254701320114" target="_blank" class="button">Chat on WhatsApp</a>
+
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <p>
+        Hello! I'm Ian Henry, a passionate technology enthusiast dedicated to creating innovative solutions. 
+        I specialize in software development, web design, and digital strategy to help businesses and individuals succeed in the digital world.
+      </p>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Services</h2>
+      <p>
+        - Custom Website Development<br>
+        - Mobile App Development<br>
+        - IT Consultancy<br>
+        - Digital Marketing Solutions
+      </p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p>
+        📞 Phone: +254701320114<br>
+        📧 Email: ianhenry@example.com<br>
+        🌍 Location: Matungu, Kenya
+      </p>
+    </div>
+  </section>
 </body>
 </html>
