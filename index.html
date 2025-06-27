@@ -6,12 +6,17 @@
   <title>Ian Henry | Tech Innovations</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
       background: linear-gradient(135deg, #2193b0, #6dd5ed);
       color: white;
       text-align: center;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
     }
     .profile-pic {
       margin: 20px auto;
@@ -20,9 +25,14 @@
       border-radius: 50%;
       background: url('https://i.imgur.com/5Lbckqd.png') no-repeat center/cover;
       border: 3px solid white;
+      animation: fadeIn 2s ease-in-out;
     }
     h1 {
       margin-top: 10px;
+      font-size: 28px;
+    }
+    p {
+      font-size: 18px;
     }
     .button {
       display: inline-block;
@@ -34,58 +44,97 @@
       border-radius: 4px;
       text-decoration: none;
       font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #128C7E;
     }
     section {
       padding: 40px 20px;
+      animation: fadeInUp 1s ease;
     }
     .section-title {
       font-size: 24px;
       margin-bottom: 20px;
       text-decoration: underline;
     }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
+    .social-links a {
+      display: inline-block;
+      margin: 0 10px;
+      color: white;
+      font-size: 24px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .social-links a:hover {
+      color: #ddd;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 600px) {
+      .profile-pic {
+        width: 120px;
+        height: 120px;
+      }
+      h1 {
+        font-size: 22px;
+      }
+      p, .button {
+        font-size: 16px;
+      }
+      .section-title {
+        font-size: 20px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="profile-pic"></div>
-  <h1>Welcome to Ian Henry's Official Web Site</h1>
-  <p>I provide tech innovations</p>
-  <a href="https://wa.me/254701320114" target="_blank" class="button">Chat on WhatsApp</a>
+  <div class="container">
+    <div class="profile-pic"></div>
+    <h1>Welcome to Ian Henry's Official Web Page</h1>
+    <p>I provide tech innovations</p>
+    <a href="https://wa.me/254701320114" target="_blank" class="button">Chat on WhatsApp</a>
 
-  <section id="about">
-    <div class="container">
+    <section id="about">
       <h2 class="section-title">About Me</h2>
       <p>
-        Hello! I'm Ian Henry, a passionate technology enthusiast dedicated to creating innovative solutions. 
-        I specialize in software development, web design, and digital strategy to help businesses and individuals succeed in the digital world.
+        Hi, I'm Ian Henry, a passionate technologist and innovator. I love building software, designing modern websites, and helping people harness the power of digital tools.
       </p>
-    </div>
-  </section>
+    </section>
 
-  <section id="services">
-    <div class="container">
+    <section id="services">
       <h2 class="section-title">Services</h2>
       <p>
-        - Custom Website Development<br>
-        - Mobile App Development<br>
-        - IT Consultancy<br>
-        - Digital Marketing Solutions
+        ✔ Custom Websites & Mobile Apps<br>
+        ✔ IT Consultancy & Training<br>
+        ✔ Digital Marketing & Branding<br>
+        ✔ Tech Support & Solutions
       </p>
-    </div>
-  </section>
+    </section>
 
-  <section id="contact">
-    <div class="container">
+    <section id="contact">
       <h2 class="section-title">Contact</h2>
       <p>
         📞 Phone: +254701320114<br>
         📧 Email: ianhenry000@gmail.com<br>
-        🌍 Location: Nairobi, Kenya
+        🌍 Nairobi, Kenya
       </p>
-    </div>
-  </section>
+    </section>
+
+    <section>
+      <h2 class="section-title">Follow Me</h2>
+      <div class="social-links">
+        <a href="https://facebook.com/" target="_blank">🌐 Facebook</a>
+        <a href="https://twitter.com/" target="_blank">🐦 Twitter</a>
+        <a href="https://instagram.com/" target="_blank">📷 Instagram</a>
+      </div>
+    </section>
+  </div>
 </body>
 </html>
