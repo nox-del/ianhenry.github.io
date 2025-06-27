@@ -1,49 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Ian Henry | Tech Innovations</title>
-<style>
-body {font-family:sans-serif; background:#1e3c72; color:#fff; margin:0; padding:0; text-align:center;}
-.container {max-width:1000px; margin:auto; padding:20px;}
-.section-title {font-size:26px; margin:20px 0;}
-.portfolio-item {background:#ffffff10; margin:10px; padding:15px; border-radius:8px;}
-.blog-post {background:#ffffff10; margin:10px; padding:15px; border-radius:8px;}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ian Henry | Tech Innovations</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      color: #f5f5f5;
+      text-align: center;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .profile-pic {
+      margin: 20px auto;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: url('https://i.imgur.com/5Lbckqd.png') no-repeat center/cover;
+      border: 4px solid #ffffff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      animation: fadeIn 2s ease-in-out;
+    }
+    h1 {
+      margin-top: 10px;
+      font-size: 34px;
+      color: #ffffff;
+    }
+    p {
+      font-size: 18px;
+    }
+    .button {
+      display: inline-block;
+      margin: 15px;
+      padding: 12px 28px;
+      background-color: #25D366;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .button:hover {
+      background-color: #128C7E;
+      transform: scale(1.05);
+    }
+    section {
+      padding: 50px 20px;
+      animation: fadeInUp 1s ease;
+      background-color: rgba(255,255,255,0.05);
+      margin: 20px 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .section-title {
+      font-size: 26px;
+      margin-bottom: 20px;
+      color: #ffffff;
+      border-bottom: 2px solid #ffffff44;
+      display: inline-block;
+      padding-bottom: 6px;
+    }
+    .social-links a {
+      display: inline-block;
+      margin: 0 12px;
+      color: white;
+      font-size: 24px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .social-links a:hover {
+      color: #ddd;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 600px) {
+      .profile-pic {
+        width: 120px;
+        height: 120px;
+      }
+      h1 {
+        font-size: 24px;
+      }
+      p, .button {
+        font-size: 16px;
+      }
+      .section-title {
+        font-size: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-<h1>Welcome to Ian Henry's Official Web Page</h1>
-<p>I provide tech innovations</p>
-<a href="https://wa.me/254701320114" class="button">Chat on WhatsApp</a>
+  <div class="container">
+    <div class="profile-pic"></div>
+    <h1>Welcome to Ian Henry's Official Web Page</h1>
+    <p>I provide tech innovations</p>
+    <a href="https://wa.me/254701320114" target="_blank" class="button">Chat on WhatsApp</a>
 
-<section id="about">
-<h2 class="section-title">About Me</h2>
-<p>I'm Ian Henry, a passionate technologist based in Kenya.</p>
-</section>
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <p>
+        I'm Ian Henry, a passionate innovator and technologist based in Matungu, Kenya. I specialize in developing creative solutions in technology, offering guidance and services in web development, mobile tech, and digital strategy.
+      </p>
+    </section>
 
-<section id="portfolio">
-<h2 class="section-title">Portfolio</h2>
-<div class="portfolio-item">Project 1 - Website for Local Business</div>
-<div class="portfolio-item">Project 2 - Mobile App for Education</div>
-</section>
+    <section id="services">
+      <h2 class="section-title">Services</h2>
+      <p>
+        ✅ Custom Websites & Mobile Apps<br>
+        ✅ IT Consultancy & Training<br>
+        ✅ Digital Marketing & Branding<br>
+        ✅ Tech Support & Solutions
+      </p>
+    </section>
 
-<section id="blog">
-<h2 class="section-title">Blog</h2>
-<div class="blog-post"><strong>Latest Update:</strong> Launched a new web app!</div>
-</section>
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <p>
+        📞 Phone: +254701320114<br>
+        📧 Email: ianhenry000@gmail.com<br>
+        📍 Location: Nairobi, Kenya
+      </p>
+    </section>
 
-<section id="contact">
-<h2 class="section-title">Contact</h2>
-<p>Phone: +254701320114<br>Email: ianhenry000@gmail.com</p>
-</section>
-
-<section id="counter">
-<h2 class="section-title">Visitor Counter</h2>
-<p><img src="https://www.cutercounter.com/hits.php?id=hmmpfc&nd=6&style=1" border="0" alt="visitor counter"></p>
-</section>
-
-</div>
+    <section>
+      <h2 class="section-title">Follow Me</h2>
+      <div class="social-links">
+        <a href="https://facebook.com/" target="_blank">🌐 Facebook</a>
+        <a href="https://twitter.com/" target="_blank">🐦 Twitter</a>
+      </div>
+    </section>
+  </div>
 </body>
 </html>
