@@ -7,12 +7,15 @@
   
   <!-- Favicon -->
   <link rel="icon" href="https://i.imgur.com/yhGCoVa.jpeg" type="image/jpeg" />
-  
-  <!-- SEO Meta Tags -->
+
+  <!-- SEO Meta -->
   <meta name="description" content="Ian Henry | Tech Innovations - Custom Websites, Mobile Apps, AI, and Digital Strategy in Nairobi, Kenya." />
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a2d9d6b6b4.js" crossorigin="anonymous"></script>
 
   <style>
     :root {
@@ -20,6 +23,9 @@
       --dark-color: #1e3c72;
       --text-light: #f5f5f5;
       --text-muted: #cccccc;
+    }
+    html {
+      scroll-behavior: smooth;
     }
     body {
       margin: 0;
@@ -80,6 +86,13 @@
     }
     section {
       margin-bottom: 60px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     .section-title {
       font-size: 28px;
@@ -106,6 +119,33 @@
       font-size: 14px;
       color: var(--text-muted);
     }
+    /* Contact Form */
+    .contact-form {
+      max-width: 500px;
+      margin: auto;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      font-family: 'Inter', sans-serif;
+    }
+    .contact-form button {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .contact-form button:hover {
+      background-color: #128C7E;
+    }
     @media(max-width: 768px) {
       header {
         height: auto;
@@ -125,20 +165,20 @@
     <div class="hero-content">
       <h1>Ian Henry</h1>
       <p>Creative Tech Solutions, AI, and Digital Innovations</p>
-      <a href="https://wa.me/254701320114?text=Hello%20Ian%2C%20I%20am%20interested%20in%20your%20services." class="button" target="_blank">Chat on WhatsApp</a>
+      <a href="#contact" class="button">Get in Touch</a>
     </div>
   </header>
 
   <div class="container">
     <section id="about">
-      <h2 class="section-title">About Me</h2>
+      <h2 class="section-title"><i class="fas fa-user"></i> About Me</h2>
       <p>
         I'm Ian Henry, a passionate innovator and technologist based in Nairobi, Kenya. I specialize in developing creative solutions in technology, offering guidance and services in web development, mobile tech, Artificial Intelligence (AI), and digital strategy.
       </p>
     </section>
 
     <section id="services">
-      <h2 class="section-title">Services</h2>
+      <h2 class="section-title"><i class="fas fa-cogs"></i> Services</h2>
       <p>
         ✅ Custom Websites & Mobile Apps<br>
         ✅ IT Consultancy & Training<br>
@@ -148,19 +188,23 @@
     </section>
 
     <section id="contact">
-      <h2 class="section-title">Contact</h2>
-      <p>
-        📞 Phone: +254701320114<br>
-        📧 Email: ianhenry000@gmail.com<br>
-        📍 Location: Nairobi, Kenya
-      </p>
+      <h2 class="section-title"><i class="fas fa-envelope"></i> Contact</h2>
+      <div class="contact-form">
+        <form action="mailto:ianhenry000@gmail.com" method="post" enctype="text/plain">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
     </section>
 
     <section>
-      <h2 class="section-title">Follow Me</h2>
+      <h2 class="section-title"><i class="fas fa-share-alt"></i> Follow Me</h2>
       <div class="social-links">
-        <a href="https://facebook.com/yourprofile" target="_blank">🌐 Facebook</a>
-        <a href="https://twitter.com/yourprofile" target="_blank">🐦 Twitter</a>
+        <a href="https://facebook.com/yourprofile" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com/yourprofile" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://wa.me/254701320114" target="_blank"><i class="fab fa-whatsapp"></i></a>
       </div>
     </section>
   </div>
@@ -168,5 +212,22 @@
   <footer>
     &copy; 2025 Ian Henry. All rights reserved.
   </footer>
+
+  <script>
+    // Scroll Animation
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+        }
+      });
+    },{
+      threshold: 0.1
+    });
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
