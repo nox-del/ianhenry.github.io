@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ian Henry | Tech Innovations</title>
 
+  <!-- Security Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta name="robots" content="index, noarchive" />
+
   <!-- Favicon -->
   <link rel="icon" href="https://i.imgur.com/yhGCoVa.jpeg" type="image/jpeg" sizes="32x32" />
 
@@ -47,6 +52,8 @@
       color: #1f2937;
       line-height: 1.7;
       scroll-behavior: smooth;
+      /* Prevent text selection to deter casual copying */
+      user-select: none;
     }
     header {
       position: relative;
@@ -125,12 +132,14 @@
     section {
       margin-bottom: 80px;
     }
+    .services-list,
     .portfolio-list {
       list-style: none;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 24px;
     }
+    .services-list li,
     .portfolio-list li {
       background-color: white;
       padding: 24px;
@@ -138,6 +147,7 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+    .services-list li:hover,
     .portfolio-list li:hover {
       transform: translateY(-4px);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
@@ -172,7 +182,7 @@
     .contact-form textarea:focus {
       outline: none;
       border-color: var(--primary-color);
-      box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.1);
+      box.5db;
     }
     .contact-form button {
       padding: 12px;
@@ -234,6 +244,7 @@
       .hero-content p {
         font-size: 1.125rem;
       }
+      .services-list,
       .portfolio-list {
         grid-template-columns: 1fr;
       }
@@ -277,7 +288,7 @@
     <div class="hero-content">
       <h1>Ian Henry</h1>
       <p>Creative Tech Solutions, AI, and Digital Innovations</p>
-      <a href="https://wa.me/254701320114?text=Hello%20Ian%2C%20I%20am%20interested%20in%20your%20services." class="button" target="_blank">Chat on WhatsApp</a>
+      <a href="https://wa.me/254701320114?text=Hello%20Ian%2C%20I%20am%20interested%20in%20your%20services." class="button" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
     </div>
   </header>
 
@@ -285,17 +296,17 @@
     <section id="about" class="fade-in">
       <h2 class="section-title">About Me</h2>
       <p>
-        I'm Ian Henry, a passionate technologist based in Nairobi, Kenya, with a knack for crafting innovative digital solutions. Specializing in web development, mobile apps, Artificial Intelligence (AI), and digital strategy, I empower businesses and individuals to thrive in the digital era with cutting-edge technology and strategic insights.
+        I'm Ian Henry, a dedicated technologist based in Nairobi, Kenya, with a passion for crafting innovative digital solutions. Specializing in web development, mobile apps, Artificial Intelligence (AI), and digital strategy, I empower businesses and individuals to thrive in the digital era with cutting-edge technology and strategic insights.
       </p>
     </section>
 
     <section id="services" class="fade-in">
       <h2 class="section-title">Services</h2>
-      <ul>
-        <li>✅ Custom Websites & Mobile Apps</li>
-        <li>✅ IT Consultancy & Training</li>
-        <li>✅ Digital Marketing & Branding</li>
-        <li>✅ Tech Support & Solutions</li>
+      <ul class="services-list">
+        <li>Custom Websites & Mobile Apps</li>
+        <li>IT Consultancy & Training</li>
+        <li>Digital Marketing & Branding</li>
+        <li>Tech Support & Solutions</li>
       </ul>
     </section>
 
@@ -321,8 +332,8 @@
     <section id="contact" class="fade-in">
       <h2 class="section-title">Get in Touch</h2>
       <p>
-        📞 Phone: <a href="tel:+254701320114">+254701320114</a><br>
-        📧 Email: <a href="mailto:ianhenry000@gmail.com">ianhenry000@gmail.com</a><br>
+        📞 Phone: <a href="tel:+254701320114" rel="noopener noreferrer">+254701320114</a><br>
+        📧 Email: <a href="mailto:ianhenry000@gmail.com" rel="noopener noreferrer">ianhenry000@gmail.com</a><br>
         📍 Location: Nairobi, Kenya
       </p>
       <form class="contact-form" id="contact-form" onsubmit="handleSubmit(event)">
@@ -337,10 +348,10 @@
     <section class="fade-in">
       <h2 class="section-title">Follow Me</h2>
       <div class="social-links">
-        <a href="https://facebook.com/ianhenrytech" target="_blank" aria-label="Visit Ian Henry's Facebook profile">🌐 Facebook</a>
-        <a href="https://twitter.com/ianhenrytech" target="_blank" aria-label="Visit Ian Henry's Twitter profile">🐦 Twitter</a>
-        <a href="https://linkedin.com/in/ianhenrytech" target="_blank" aria-label="Visit Ian Henry's LinkedIn profile">💼 LinkedIn</a>
-        <a href="https://instagram.com/ianhenrytech" target="_blank" aria-label="Visit Ian Henry's Instagram profile">📸 Instagram</a>
+        <a href="https://facebook.com/ianhenrytech" target="_blank" rel="noopener noreferrer" aria-label="Visit Ian Henry's Facebook profile">🌐 Facebook</a>
+        <a href="https://twitter.com/ianhenrytech" target="_blank" rel="noopener noreferrer" aria-label="Visit Ian Henry's Twitter profile">🐦 Twitter</a>
+        <a href="https://linkedin.com/in/ianhenrytech" target="_blank" rel="noopener noreferrer" aria-label="Visit Ian Henry's LinkedIn profile">💼 LinkedIn</a>
+        <a href="https://instagram.com/ianhenrytech" target="_blank" rel="noopener noreferrer" aria-label="Visit Ian Henry's Instagram profile">📸 Instagram</a>
       </div>
     </section>
   </main>
@@ -350,12 +361,13 @@
   </footer>
 
   <script>
+    // Basic form submission handler (simulated for client-side demo)
     function handleSubmit(event) {
       event.preventDefault();
-      const form = event.target;
+      const form&Egt;form = event.target;
       const messageDiv = document.getElementById('form-message');
       
-      // Basic client-side validation
+      // Client-side validation
       const name = form.name.value.trim();
       const email = form.email.value.trim();
       const message = form.message.value.trim();
@@ -366,15 +378,14 @@
         return;
       }
 
-      // Simulate form submission (replace with actual backend logic)
+      // Simulated submission (replace with backend API call for production)
       setTimeout(() => {
         messageDiv.className = 'form-message success';
         messageDiv.textContent = 'Message sent successfully! I’ll get back to you soon.';
         form.reset();
       }, 500);
 
-      // For a real backend, you’d use fetch() to send data to a server
-      // Example:
+      // For production, uncomment and configure with backend endpoint
       /*
       fetch('/api/contact', {
         method: 'POST',
@@ -393,6 +404,9 @@
       });
       */
     }
+
+    // Disable right-click to deter casual source copying (not foolproof)
+    document.addEventListener('contextmenu', event => event.preventDefault());
   </script>
 </body>
 </html>
