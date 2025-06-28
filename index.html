@@ -4,41 +4,59 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ian Henry | Tech Innovations</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="https://i.imgur.com/5Lbckqd.png" type="image/png" />
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Ian Henry | Tech Innovations - Custom Websites, Mobile Apps, IT Consultancy, and Digital Strategy in Nairobi, Kenya." />
+  
+  <!-- Open Graph (for social sharing) -->
+  <meta property="og:title" content="Ian Henry | Tech Innovations" />
+  <meta property="og:description" content="Creative solutions in technology: web development, AI, mobile apps, and digital marketing." />
+  <meta property="og:image" content="https://i.imgur.com/5Lbckqd.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nox-del.github.io/ianhenry.github.io/" />
+  
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(to right, #1e3c72, #2a5298);
+      background: #1e3c72;
       color: #f5f5f5;
-      text-align: center;
     }
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 20px;
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      min-height: 400px;
     }
-    .profile-pic {
-      margin: 20px auto;
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
+    .hero-image {
+      flex: 1 1 50%;
       background: url('https://i.imgur.com/5Lbckqd.png') no-repeat center/cover;
-      border: 4px solid #ffffff;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      animation: fadeIn 2s ease-in-out;
+      min-height: 300px;
     }
-    h1 {
-      margin-top: 10px;
-      font-size: 34px;
-      color: #ffffff;
+    .hero-text {
+      flex: 1 1 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      text-align: center;
+      background: linear-gradient(to right, #1e3c72, #2a5298);
     }
-    p {
+    .hero-text h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    .hero-text p {
       font-size: 18px;
+      margin-bottom: 20px;
     }
     .button {
       display: inline-block;
-      margin: 15px;
       padding: 12px 28px;
       background-color: #25D366;
       color: white;
@@ -54,13 +72,19 @@
       background-color: #128C7E;
       transform: scale(1.05);
     }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
     section {
       padding: 50px 20px;
-      animation: fadeInUp 1s ease;
       background-color: rgba(255,255,255,0.05);
       margin: 20px 0;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      animation: fadeInUp 1s ease;
     }
     .section-title {
       font-size: 26px;
@@ -81,42 +105,38 @@
     .social-links a:hover {
       color: #ddd;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    @media (max-width: 600px) {
-      .profile-pic {
-        width: 120px;
-        height: 120px;
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
       }
-      h1 {
-        font-size: 24px;
+      .hero-image, .hero-text {
+        flex: 1 1 100%;
       }
-      p, .button {
-        font-size: 16px;
-      }
-      .section-title {
-        font-size: 20px;
+      .hero-text h1 {
+        font-size: 28px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="profile-pic"></div>
-    <h1>Welcome to Ian Henry's Official Web Page</h1>
-    <p>I provide tech innovations</p>
-    <a href="https://wa.me/254701320114" target="_blank" class="button">Chat on WhatsApp</a>
+  <div class="hero">
+    <div class="hero-image"></div>
+    <div class="hero-text">
+      <h1>Ian Henry</h1>
+      <p>I provide tech innovations</p>
+      <a href="https://wa.me/254701320114?text=Hello%20Ian%2C%20I%20am%20interested%20in%20your%20services." target="_blank" class="button">Chat on WhatsApp</a>
+    </div>
+  </div>
 
+  <div class="container">
     <section id="about">
       <h2 class="section-title">About Me</h2>
       <p>
-        I'm Ian Henry, a passionate innovator and technologist based in Nairobi, Kenya. I specialize in developing creative solutions in technology, offering guidance and services in web development, mobile tech, Artificial Intelligence(AI) and digital strategy.
+        I'm Ian Henry, a passionate innovator and technologist based in Nairobi, Kenya. I specialize in developing creative solutions in technology, offering guidance and services in web development, mobile tech, Artificial Intelligence (AI), and digital strategy.
       </p>
     </section>
 
@@ -142,8 +162,8 @@
     <section>
       <h2 class="section-title">Follow Me</h2>
       <div class="social-links">
-        <a href="https://facebook.com/" target="_blank">🌐 Facebook</a>
-        <a href="https://twitter.com/" target="_blank">🐦 Twitter</a>
+        <a href="https://facebook.com/yourprofile" target="_blank">🌐 Facebook</a>
+        <a href="https://twitter.com/yourprofile" target="_blank">🐦 Twitter</a>
       </div>
     </section>
   </div>
