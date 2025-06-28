@@ -7,66 +7,67 @@
   
   <!-- Favicon -->
   <link rel="icon" href="https://i.imgur.com/yhGCoVa.jpeg" type="image/jpeg" />
-
+  
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Ian Henry | Tech Innovations - Custom Websites, Mobile Apps, IT Consultancy, and Digital Strategy in Nairobi, Kenya." />
-  
-  <!-- Open Graph (for social sharing) -->
-  <meta property="og:title" content="Ian Henry | Tech Innovations" />
-  <meta property="og:description" content="Creative solutions in technology: web development, AI, mobile apps, and digital marketing." />
-  <meta property="og:image" content="https://i.imgur.com/yhGCoVa.jpeg" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://nox-del.github.io/ianhenry.github.io/" />
-  
+  <meta name="description" content="Ian Henry | Tech Innovations - Custom Websites, Mobile Apps, AI, and Digital Strategy in Nairobi, Kenya." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --primary-color: #25D366;
+      --dark-color: #1e3c72;
+      --text-light: #f5f5f5;
+      --text-muted: #cccccc;
+    }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      padding: 0;
-      background: #1e3c72;
-      color: #f5f5f5;
+      font-family: 'Inter', sans-serif;
+      background-color: #f0f2f5;
+      color: #333;
+      line-height: 1.6;
     }
-    .hero {
+    header {
+      position: relative;
+      height: 90vh;
+      background: url('https://i.imgur.com/yhGCoVa.jpeg') center/cover no-repeat;
       display: flex;
-      flex-wrap: wrap;
-      width: 100%;
-      min-height: 400px;
-    }
-    .hero-image {
-      flex: 1 1 50%;
-      background: url('https://i.imgur.com/yhGCoVa.jpeg') no-repeat center/cover;
-      min-height: 300px;
-    }
-    .hero-text {
-      flex: 1 1 50%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      padding: 40px 20px;
+      justify-content: center;
       text-align: center;
-      background: linear-gradient(to right, #1e3c72, #2a5298);
+      color: white;
     }
-    .hero-text h1 {
-      font-size: 36px;
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      padding: 0 20px;
+    }
+    .hero-content h1 {
+      font-size: 42px;
       margin-bottom: 10px;
     }
-    .hero-text p {
-      font-size: 18px;
-      margin-bottom: 20px;
+    .hero-content p {
+      font-size: 20px;
+      margin-bottom: 30px;
+      color: #ddd;
     }
     .button {
       display: inline-block;
-      padding: 12px 28px;
-      background-color: #25D366;
+      padding: 14px 32px;
+      background-color: var(--primary-color);
       color: white;
-      border: none;
-      border-radius: 6px;
+      font-weight: 600;
       text-decoration: none;
-      font-size: 18px;
-      font-weight: bold;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      border-radius: 6px;
+      transition: background 0.3s ease, transform 0.2s ease;
     }
     .button:hover {
       background-color: #128C7E;
@@ -74,63 +75,59 @@
     }
     .container {
       max-width: 1000px;
-      margin: 0 auto;
-      padding: 20px;
-      text-align: center;
+      margin: auto;
+      padding: 60px 20px;
     }
     section {
-      padding: 50px 20px;
-      background-color: rgba(255,255,255,0.05);
-      margin: 20px 0;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      animation: fadeInUp 1s ease;
+      margin-bottom: 60px;
     }
     .section-title {
-      font-size: 26px;
+      font-size: 28px;
       margin-bottom: 20px;
-      color: #ffffff;
-      border-bottom: 2px solid #ffffff44;
+      color: var(--dark-color);
+      border-bottom: 2px solid #ddd;
       display: inline-block;
       padding-bottom: 6px;
     }
     .social-links a {
       display: inline-block;
       margin: 0 12px;
-      color: white;
-      font-size: 24px;
+      font-size: 22px;
       text-decoration: none;
+      color: var(--dark-color);
       transition: color 0.3s ease;
     }
     .social-links a:hover {
-      color: #ddd;
+      color: var(--primary-color);
     }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: var(--text-muted);
     }
-    @media (max-width: 768px) {
-      .hero {
-        flex-direction: column;
+    @media(max-width: 768px) {
+      header {
+        height: auto;
+        padding: 100px 20px;
       }
-      .hero-image, .hero-text {
-        flex: 1 1 100%;
-      }
-      .hero-text h1 {
+      .hero-content h1 {
         font-size: 28px;
+      }
+      .hero-content p {
+        font-size: 18px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="hero">
-    <div class="hero-image"></div>
-    <div class="hero-text">
-      <h1>Ian Henry's</h1>
-      <p>Tech Innovations</p>
-      <a href="https://wa.me/254701320114?text=Hello%20Ian%2C%20I%20am%20interested%20in%20your%20services." target="_blank" class="button">Chat on WhatsApp</a>
+  <header>
+    <div class="hero-content">
+      <h1>Ian Henry</h1>
+      <p>Creative Tech Solutions, AI, and Digital Innovations</p>
+      <a href="https://wa.me/254701320114?text=Hello%20Ian%2C%20I%20am%20interested%20in%20your%20services." class="button" target="_blank">Chat on WhatsApp</a>
     </div>
-  </div>
+  </header>
 
   <div class="container">
     <section id="about">
@@ -167,5 +164,9 @@
       </div>
     </section>
   </div>
+
+  <footer>
+    &copy; 2025 Ian Henry. All rights reserved.
+  </footer>
 </body>
 </html>
