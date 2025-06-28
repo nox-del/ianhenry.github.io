@@ -2,14 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ian Henry | Tech Innovations</title>
-  
+
   <!-- Favicon -->
-  <link rel="icon" href="https://i.imgur.com/yhGCoVa.jpeg" type="image/jpeg" />
-  
+  <link rel="icon" href="https://i.imgur.com/yhGCoVa.jpeg" type="image/jpeg" sizes="32x32" />
+
   <!-- SEO Meta Tags -->
   <meta name="description" content="Ian Henry | Tech Innovations - Custom Websites, Mobile Apps, AI, and Digital Strategy in Nairobi, Kenya." />
+  <meta name="keywords" content="tech innovations, web development, mobile apps, AI, digital strategy, Nairobi, Kenya" />
+  <meta name="author" content="Ian Henry" />
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Ian Henry | Tech Innovations" />
+  <meta property="og:description" content="Custom Websites, Mobile Apps, AI, and Digital Strategy in Nairobi, Kenya." />
+  <meta property="og:image" content="https://i.imgur.com/yhGCoVa.jpeg" />
+  <meta property="og:url" content="https://ianhenry.tech" />
+  <meta property="og:type" content="website" />
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ian Henry | Tech Innovations" />
+  <meta name="twitter:description" content="Custom Websites, Mobile Apps, AI, and Digital Strategy in Nairobi, Kenya." />
+  <meta name="twitter:image" content="https://i.imgur.com/yhGCoVa.jpeg" />
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -27,6 +40,7 @@
       background-color: #f0f2f5;
       color: #333;
       line-height: 1.6;
+      scroll-behavior: smooth;
     }
     header {
       position: relative;
@@ -42,7 +56,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0, 0, 0, 0.6);
     }
     .hero-content {
       position: relative;
@@ -100,13 +114,22 @@
     .social-links a:hover {
       color: var(--primary-color);
     }
+    .portfolio-list {
+      list-style: none;
+      padding: 0;
+    }
+    .portfolio-list li {
+      padding: 10px 0;
+      font-size: 18px;
+    }
     footer {
       text-align: center;
       padding: 20px;
       font-size: 14px;
       color: var(--text-muted);
+      background-color: #1e3c72;
     }
-    @media(max-width: 768px) {
+    @media (max-width: 768px) {
       header {
         height: auto;
         padding: 100px 20px;
@@ -117,11 +140,27 @@
       .hero-content p {
         font-size: 18px;
       }
+      .button {
+        padding: 12px 24px;
+        font-size: 16px;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero-content h1 {
+        font-size: 24px;
+      }
+      .hero-content p {
+        font-size: 16px;
+      }
+      .social-links a {
+        font-size: 18px;
+        margin: 0 8px;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
+  <header role="banner">
     <div class="hero-content">
       <h1>Ian Henry</h1>
       <p>Creative Tech Solutions, AI, and Digital Innovations</p>
@@ -129,11 +168,11 @@
     </div>
   </header>
 
-  <div class="container">
+  <main class="container" role="main">
     <section id="about">
       <h2 class="section-title">About Me</h2>
       <p>
-        I'm Ian Henry, a passionate innovator and technologist based in Nairobi, Kenya. I specialize in developing creative solutions in technology, offering guidance and services in web development, mobile tech, Artificial Intelligence (AI), and digital strategy.
+        I'm Ian Henry, a passionate innovator and technologist based in Nairobi, Kenya. I specialize in developing creative solutions in technology, offering guidance and services in web development, mobile tech, Artificial Intelligence (AI), and digital strategy. With a focus on delivering impactful solutions, I help businesses and individuals thrive in the digital age.
       </p>
     </section>
 
@@ -147,11 +186,21 @@
       </p>
     </section>
 
+    <section id="portfolio">
+      <h2 class="section-title">Portfolio</h2>
+      <p>Explore some of my recent projects:</p>
+      <ul class="portfolio-list">
+        <li>Custom E-commerce Website for Local Business - Built with React and Node.js</li>
+        <li>Mobile App for Task Management - Developed using Flutter</li>
+        <li>AI Chatbot for Customer Support - Powered by TensorFlow</li>
+      </ul>
+    </section>
+
     <section id="contact">
       <h2 class="section-title">Contact</h2>
       <p>
         📞 Phone: +254701320114<br>
-        📧 Email: ianhenry000@gmail.com<br>
+        📧 Email: <a href="mailto:ianhenry000@gmail.com">ianhenry000@gmail.com</a><br>
         📍 Location: Nairobi, Kenya
       </p>
     </section>
@@ -159,14 +208,16 @@
     <section>
       <h2 class="section-title">Follow Me</h2>
       <div class="social-links">
-        <a href="https://facebook.com/yourprofile" target="_blank">🌐 Facebook</a>
-        <a href="https://twitter.com/yourprofile" target="_blank">🐦 Twitter</a>
+        <a href="https://facebook.com/ianhenrytech" target="_blank" aria-label="Facebook">🌐 Facebook</a>
+        <a href="https://twitter.com/ianhenrytech" target="_blank" aria-label="Twitter">🐦 Twitter</a>
+        <a href="https://linkedin.com/in/ianhenrytech" target="_blank" aria-label="LinkedIn">💼 LinkedIn</a>
+        <a href="https://instagram.com/ianhenrytech" target="_blank" aria-label="Instagram">📸 Instagram</a>
       </div>
     </section>
-  </div>
+  </main>
 
-  <footer>
-    &copy; 2025 Ian Henry. All rights reserved.
+  <footer role="contentinfo">
+    © 2025 Ian Henry. All rights reserved.
   </footer>
 </body>
 </html>
