@@ -5,12 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ian Henry - Creative Tech Solutions</title>
   <meta name="description" content="Ian Henry's personal website showcasing creative tech solutions, AI projects, and digital innovations.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
-  <link rel="icon" href="favicon.ico" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https://i.imgur.com; script-src 'self' https://unpkg.com https://plausible.io; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com;">
   <style>
     body {
       margin: 0;
@@ -20,10 +16,7 @@
       line-height: 1.6;
     }
     header {
-      background-image: url('https://i.imgur.com/JGvd5TJ.jpg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
+      background: url('https://i.imgur.com/JGvd5TJ.jpg') center / cover no-repeat fixed;
       text-align: center;
       padding: 150px 20px;
     }
@@ -48,14 +41,6 @@
       text-decoration: none;
       border-radius: 8px;
       font-weight: bold;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .button:hover {
-      background: #01d4b8;
-    }
-    .button:active {
-      transform: scale(0.96);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
     }
     section {
       padding: 60px 20px;
@@ -68,133 +53,35 @@
       margin-bottom: 1em;
       text-align: center;
     }
-    .services-list,
-    .portfolio-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-      list-style: none;
-      padding: 0;
-    }
-    .services-list li,
-    .portfolio-list li {
-      background: rgba(255,255,255,0.1);
-      padding: 20px;
-      border-radius: 12px;
-      text-align: center;
-      transition: transform 0.2s ease;
-    }
-    .services-list li:hover,
-    .portfolio-list li:hover {
-      transform: translateY(-5px);
-    }
-    form {
-      display: grid;
-      gap: 15px;
-      max-width: 500px;
-      margin: auto;
-    }
-    form input,
-    form textarea {
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      width: 100%;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-      background: rgba(0,0,0,0.3);
-      backdrop-filter: blur(5px);
-    }
-    img {
-      max-width: 100%;
-      border-radius: 8px;
-      display: block;
-      margin: auto;
-    }
   </style>
 </head>
 <body>
-  <header role="banner" data-aos="fade-down">
+  <header>
     <div class="glass-card">
       <h1>Ian Henry</h1>
       <p>Creative Tech Solutions, AI Projects, and Digital Innovation</p>
-      <a href="https://wa.me/254746486313" class="button" aria-label="Chat with Ian Henry on WhatsApp">Chat on WhatsApp</a>
+      <a href="https://wa.me/254746486313" class="button">Chat on WhatsApp</a>
     </div>
   </header>
 
   <main>
-    <section id="about" data-aos="fade-up">
+    <section>
       <h2>About Me</h2>
-      <p>Hello! I'm Ian Henry, passionate about building impactful technology solutions and exploring the future of AI. With experience in web and mobile development, I help individuals and organizations bring their ideas to life.</p>
-      <img src="https://i.imgur.com/yhGCoVa.jpeg" alt="Ian Henry portrait" loading="lazy"/>
+      <p>Hello! I'm Ian Henry, passionate about building impactful technology solutions and exploring the future of AI.</p>
     </section>
-
-    <section id="services" data-aos="fade-up">
+    <section>
       <h2>Services</h2>
-      <ul class="services-list">
-        <li>Web Development</li>
-        <li>Mobile App Development</li>
-        <li>AI & Automation Consulting</li>
-        <li>Technical Training & Workshops</li>
-      </ul>
-    </section>
-
-    <section id="portfolio" data-aos="fade-up">
-      <h2>Portfolio</h2>
-      <ul class="portfolio-list">
-        <li>Smart Budget Tracker App</li>
-        <li>AI-powered Chat Assistant</li>
-        <li>Freelancer Marketplace Website</li>
-        <li>E-commerce Store Platform</li>
-      </ul>
-    </section>
-
-    <section id="contact" data-aos="fade-up">
-      <h2>Contact Me</h2>
-      <form action="https://formspree.io/f/your-form-id" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required aria-label="Your Name">
-        <input type="email" name="email" placeholder="Your Email" required aria-label="Your Email">
-        <textarea name="message" placeholder="Your Message" rows="5" required aria-label="Your Message"></textarea>
-        <button type="submit" class="button">Send Message</button>
-      </form>
+      <p>Web Development, Mobile Apps, AI Consulting, Training.</p>
     </section>
   </main>
 
   <footer>
-    &copy; 2025 Ian Henry. All rights reserved.
+    <p>&copy; 2025 Ian Henry. All rights reserved.</p>
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
-    AOS.init({
-      once: true,
-      duration: 800,
-      easing: 'ease-out-cubic'
-    });
-  </script>
-  <script async defer data-domain="ianhenry.tech" src="https://plausible.io/js/plausible.js"></script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Ian Henry",
-    "url": "https://ianhenry.tech",
-    "sameAs": [
-      "https://twitter.com/ianhenrytech",
-      "https://linkedin.com/in/ianhenrytech",
-      "https://instagram.com/ianhenrytech"
-    ],
-    "jobTitle": "Technology Consultant",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Tech Innovations Nairobi"
-    },
-    "image": "https://i.imgur.com/yhGCoVa.jpeg"
-  }
+    AOS.init();
   </script>
 </body>
 </html>
