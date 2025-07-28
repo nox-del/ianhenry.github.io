@@ -308,6 +308,85 @@
         <li>Tech Support & Solutions</li>
       </ul>
     </section>
+    <!-- Testimonials Section with 10 Client Carousel -->
+<section id="testimonials" style="background: linear-gradient(135deg, #f0f4f8, #e2f1ff); padding: 60px 20px;">
+  <h2 class="section-title" style="color: #128C7E; text-align: center;">💬 What Clients Say</h2>
+
+  <div class="testimonial-carousel" style="max-width: 800px; margin: 40px auto; position: relative;">
+    
+    <div class="testimonial-slide active" style="display: block;">
+      <h3 style="color: #128C7E;">Jane – Nairobi</h3>
+      <p style="font-style: italic;">“Ian delivered beyond expectations. My app runs smoothly and the UI is stunning!”</p>
+      <div style="color: gold; font-size: 1.5rem;">★★★★★</div>
+    </div>
+
+    <div class="testimonial-slide" style="display: none;">
+      <h3 style="color: #128C7E;">David – Mombasa</h3>
+      <p style="font-style: italic;">“Timely and creative. Ian understood my business perfectly and built a great solution.”</p>
+      <div style="color: gold; font-size: 1.5rem;">★★★★★</div>
+    </div>
+
+    <div class="testimonial-slide" style="display: none;">
+      <h3 style="color: #128C7E;">Linda – Kisumu</h3>
+      <p style="font-style: italic;">“I was impressed by Ian’s speed and attention to detail. 100% would hire again.”</p>
+      <div style="color: gold; font-size: 1.5rem;">★★★★☆</div>
+    </div>
+
+    <div class="testimonial-slide" style="display: none;">
+      <h3 style="color: #128C7E;">Brian – Eldoret</h3>
+      <p style="font-style: italic;">“From UI design to deployment, Ian handled everything professionally.”</p>
+      <div style="color: gold; font-size: 1.5rem;">★★★★★</div>
+    </div>
+
+    <div class="testimonial-slide" style="display: none;">
+      <h3 style="color: #128C7E;">Mercy – Nakuru</h3>
+      <p style="font-style: italic;">“I’ve worked with many devs. Ian stands out — clear, fast, and reliable.”</p>
+      <div style="color: gold; font-size: 1.5rem;">★★★★☆</div>
+    </div>
+
+    <div class="testimonial-slide" style="display: none;">
+      <h3 style="color: #128C7E;">Collins – Nairobi</h3>
+      <p style="font-style: italic;">“He turned my idea into a working product in days. Incredible!”</p>
+      <div style="color: gold; font-size: 1.5rem;">★★★★★</div>
+    </div>
+
+    <div class="testimonial-slide" style="display: none;">
+      <h3 style="color: #128C7E;">Aisha – Garissa</h3>
+      <p style="font-style: italic;">“Very helpful even after delivery. Ian offers great support.”</p>
+      <div style="color: gold; font-size: 1.5rem;">★★★★☆</div>
+    </div>
+
+    <div class="testimonial-slide" style="display: none;">
+      <h3 style="color: #128C7E;">Steve – Kitale</h3>
+      <p style="font-style: italic;">“Loved working with Ian. He communicates well and delivers results.”</p>
+      <div style="color: gold; font-size: 1.5rem;">★★★★★</div>
+    </div>
+
+    <div class="testimonial-slide" style="display: none;">
+      <h3 style="color: #128C7E;">Beatrice – Thika</h3>
+      <p style="font-style: italic;">“Great talent! My e-commerce site looks so professional now.”</p>
+      <div style="color: gold; font-size: 1.5rem;">★★★★★</div>
+    </div>
+
+    <div class="testimonial-slide" style="display: none;">
+      <h3 style="color: #128C7E;">Mark – Kisii</h3>
+      <p style="font-style: italic;">“Ian’s skills speak through his work. Modern, responsive, and fast.”</p>
+      <div style="color: gold; font-size: 1.5rem;">★★★★★</div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  let slides = document.querySelectorAll('.testimonial-slide');
+  let current = 0;
+
+  setInterval(() => {
+    slides[current].style.display = "none";
+    current = (current + 1) % slides.length;
+    slides[current].style.display = "block";
+  }, 5000); // change every 5 seconds
+</script>
 
     <section id="portfolio" class="fade-in">
       <h2 class="section-title">Portfolio</h2>
