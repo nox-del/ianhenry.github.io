@@ -409,5 +409,16 @@
     // Prevent drag-and-drop to deter image copying
     document.addEventListener('dragstart', event => event.preventDefault());
   </script>
+  <button onclick="scrollToTop()" id="scrollBtn" title="Back to top" style="position: fixed; bottom: 24px; right: 24px; display: none; background: #25D366; color: white; border: none; padding: 12px 16px; border-radius: 8px; cursor: pointer;">↑</button>
+<script>
+  const scrollBtn = document.getElementById('scrollBtn');
+  window.onscroll = () => {
+    scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+  };
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
 </body>
 </html>
