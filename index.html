@@ -1,420 +1,716 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ian Henry | Tech Innovations</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ian Henry — Tech Innovations</title>
 
-  <!-- Security & SEO -->
+  <!-- Basic SEO & Security -->
+  <meta name="description" content="Ian Henry — Nairobi-based product engineer: Web, Mobile, AI, and Growth. Available for freelance & collaborations." />
+  <meta name="author" content="Ian Henry" />
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta http-equiv="X-Frame-Options" content="DENY" />
-  <meta name="robots" content="index, noarchive" />
-  <meta name="description" content="Ian Henry – Nairobi-based tech innovator specializing in web development, mobile apps, AI, and digital strategy." />
-  <meta name="author" content="Ian Henry" />
+  <meta name="robots" content="index, follow" />
 
-  <!-- Open Graph for Social Sharing -->
-  <meta property="og:title" content="Ian Henry | Tech Innovations" />
-  <meta property="og:description" content="Nairobi-based tech innovator specializing in AI, web & app development." />
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Ian Henry — Tech Innovations" />
+  <meta property="og:description" content="Nairobi-based product engineer: Web, Mobile, AI, and Growth." />
   <meta property="og:image" content="https://i.imgur.com/yhGCoVa.jpeg" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://yourwebsite.com" />
+  <meta property="og:url" content="https://yourusername.github.io/your-repo/" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- Favicons -->
-  <link rel="icon" href="https://i.imgur.com/yhGCoVa.jpeg" type="image/jpeg" />
-  <link rel="icon" href="favicon.png" type="image/png" />
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="icon" href="https://i.imgur.com/yhGCoVa.jpeg" type="image/jpeg">
+  <link rel="icon" href="favicon.png" type="image/png">
 
   <style>
-    :root {
-      --primary-color: #25D366;
-      --secondary-color: #128C7E;
-      --dark-color: #1e3c72;
-      --light-bg: #f8fafc;
-      --text-dark: #1f2937;
-      --text-light: #f5f5f5;
+    /*
+      Premium single-file portfolio:
+      - Dark futuristic aesthetic
+      - Glassmorphism, gradients, parallax, tilt, typing headline
+      - Accessible, responsive, deploy-ready
+    */
+
+    :root{
+      --bg:#070712;
+      --panel:#0e1220;
+      --muted:#9aa4b2;
+      --accent-1: #6EE7B7; /* mint */
+      --accent-2: #60A5FA; /* blue */
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.03);
+      --glass-border: rgba(255,255,255,0.06);
+      --max-width: 1100px;
+      --radius: 14px;
+      --glass-blur: 8px;
     }
 
-    [data-theme="dark"] {
-      --light-bg: #0f172a;
-      --text-dark: #f5f5f5;
-      --dark-color: #0b132b;
-      --primary-color: #34d399;
-      --secondary-color: #059669;
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f7f9fc;
+        --panel:#ffffff;
+        --muted:#4b5563;
+        --accent-1:#16a34a;
+        --accent-2:#2563eb;
+        --glass: rgba(255,255,255,0.55);
+        --glass-2: rgba(255,255,255,0.6);
+        --glass-border: rgba(0,0,0,0.06);
+      }
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    /* Basic reset */
+    *{box-sizing:border-box;border:0;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(96,165,250,0.06), transparent),
+                  radial-gradient(1000px 500px at 90% 80%, rgba(110,231,183,0.04), transparent),
+                  var(--bg);
+      color: #e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      -webkit-tap-highlight-color: transparent;
+      transition: background .45s ease;
     }
 
-    html {
-      scroll-behavior: smooth;
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
     }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--light-bg);
-      color: var(--text-dark);
-      line-height: 1.7;
-      transition: background 0.4s, color 0.4s;
-      user-select: none;
-    }
-
-    header {
-      position: relative;
-      height: 100vh;
-      background: url('https://i.imgur.com/yhGCoVa.jpeg') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: var(--text-light);
-    }
-    header::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.55);
-    }
-
-    .theme-toggle {
-      position: fixed;
-      top: 16px;
-      right: 16px;
-      background: var(--primary-color);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 45px;
-      height: 45px;
-      font-size: 1.25rem;
-      cursor: pointer;
-      z-index: 1000;
-      transition: transform 0.3s ease;
-    }
-    .theme-toggle:hover {
-      transform: rotate(20deg);
-      background: var(--secondary-color);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 800px;
-      padding: 0 24px;
-      animation: fadeInUp 1s ease-out;
-    }
-    .hero-content h1 {
-      font-size: 3.5rem;
-      font-weight: 900;
-      margin-bottom: 16px;
-    }
-    .hero-content p {
-      font-size: 1.25rem;
-      margin-bottom: 32px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 14px 36px;
-      background: var(--primary-color);
-      color: white;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-    }
-    .button:hover {
-      background: var(--secondary-color);
-      transform: translateY(-3px);
-    }
-
-    .container {
-      max-width: 1100px;
+    /* Layout container */
+    .wrap{
+      max-width: var(--max-width);
       margin: 0 auto;
-      padding: 80px 24px;
+      padding: 28px;
     }
 
-    .section-title {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-      color: var(--dark-color);
-    }
-    section {
-      margin-bottom: 60px;
+    /* ---------- NAV ---------- */
+    .nav {
+      position: sticky;
+      top: 18px;
+      z-index: 60;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+      margin: 0 auto;
+      width: calc(100% - 56px);
+      max-width: var(--max-width);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius: 16px;
+      padding: 8px 12px;
+      box-shadow: 0 6px 30px rgba(2,6,23,0.6);
+      backdrop-filter: blur(8px) saturate(1.1);
+      border: 1px solid var(--glass-border);
     }
 
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1s ease, transform 1s ease;
+    .brand {
+      display:flex;
+      gap:12px;
+      align-items:center;
+      text-decoration:none;
+      color:inherit;
     }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .logo {
+      width:48px;height:48px;border-radius:10px;overflow:hidden;flex:0 0 48px;
+      border:1px solid rgba(255,255,255,0.06);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+    }
+    .logo img{width:100%;height:100%;object-fit:cover;display:block}
+    .brand h4{font-size:1rem;font-weight:800;letter-spacing:0.3px}
+    .brand p{font-size:0.75rem;color:var(--muted);margin-top:2px}
+
+    .nav-links {
+      display:flex;gap:10px;align-items:center;
+      margin-left:auto;
+    }
+    .nav-links a{
+      padding:10px 14px;border-radius:10px;color:var(--muted);text-decoration:none;font-weight:600;font-size:0.95rem;
+    }
+    .nav-links a:focus, .nav-links a:hover{
+      color:var(--accent-1);
+      background: linear-gradient(90deg, rgba(110,231,183,0.04), rgba(96,165,250,0.02));
+      outline: none;
     }
 
-    /* Portfolio Gallery */
-    .portfolio-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
+    .cta {
+      display:inline-flex;align-items:center;gap:10px;
+      background: linear-gradient(90deg,var(--accent-1),var(--accent-2));
+      color: #071028;font-weight:700;padding:10px 14px;border-radius:10px;font-size:0.95rem;
+      text-decoration:none;
+      box-shadow: 0 8px 30px rgba(56,84,167,0.12);
     }
-    .portfolio-item {
-      background: white;
+
+    /* Mobile menu */
+    .menu-toggle{display:none;background:transparent;border-radius:10px;padding:8px}
+    .menu-toggle svg{width:22px;height:22px;display:block}
+
+    @media (max-width:900px){
+      .nav-links{display:none}
+      .menu-toggle{display:inline-flex;margin-left:auto}
+    }
+
+
+    /* ---------- HERO ---------- */
+    .hero{
+      min-height: 86vh;
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap: 36px;
+      align-items:center;
+      padding: 64px 0;
+      position:relative;
+      overflow:visible;
+    }
+
+    /* floating particles / soft shapes */
+    .hero::before, .hero::after{
+      content:"";
+      position:absolute;pointer-events:none;
+      filter: blur(48px) saturate(1.3);
+      opacity:0.9;
+      mix-blend-mode: screen;
+    }
+    .hero::before{
+      width:540px;height:420px;right:-140px;top:-80px;
+      background:linear-gradient(135deg, rgba(96,165,250,0.18), rgba(110,231,183,0.12));
+      transform: rotate(12deg);
+      clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
+    }
+    .hero::after{
+      width:420px;height:320px;left:-120px;bottom:-40px;
+      background: linear-gradient(180deg, rgba(16,24,40,0.08), rgba(96,165,250,0.06));
+      transform: rotate(-6deg);
+      clip-path: circle(50% at 30% 50%);
+    }
+
+    .hero-left {
+      padding: 28px;
+      padding-right:40px;
+    }
+    .eyebrow {
+      display:inline-flex;align-items:center;gap:10px;color:var(--accent-1);font-weight:700;font-size:0.85rem;margin-bottom:18px;
+    }
+    .eyebrow svg{opacity:0.95}
+
+    .headline {
+      font-size: clamp(28px, 4.3vw, 44px);
+      line-height:1.02;
+      font-weight:900;
+      margin-bottom:12px;
+      letter-spacing:-0.6px;
+      color:linear-gradient(#fff,#ddd);
+    }
+
+    .typing {
+      display:inline-block;color:#cfeff3;font-weight:700;font-family:"JetBrains Mono", monospace;
+      font-size: clamp(14px, 1.6vw, 18px);
+      margin-left:10px;
+    }
+
+    .sub {
+      color:var(--muted);font-size:1.02rem;margin-top:18px;max-width:52ch;
+    }
+
+    .hero-actions{
+      margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;
+    }
+
+    /* Right column card (glass) */
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius: 20px;
+      padding:20px;
+      min-height:300px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      box-shadow: 0 12px 40px rgba(2,6,23,0.6);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(var(--glass-blur)) saturate(1.05);
+    }
+    .hero-card h3{font-size:1.05rem;margin-bottom:10px;color:var(--accent-2)}
+    .metrics{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+    .metric{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));
+      padding:12px 14px;border-radius:12px;min-width:110px;text-align:center;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .metric strong{display:block;font-size:1.2rem;font-weight:800;color:#fff}
+    .metric span{display:block;color:var(--muted);font-size:0.85rem;margin-top:6px}
+
+    /* ---------- SECTIONS ---------- */
+    section.card {
+      margin: 36px 0;
+      padding: 28px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(var(--glass-blur));
+      box-shadow: 0 10px 40px rgba(2,6,23,0.55);
+    }
+
+    .grid {
+      display:grid;
+      gap:18px;
+    }
+
+    /* Portfolio grid advanced */
+    .projects {
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:18px;
+    }
+    .project {
       border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
+      overflow:hidden;
+      transform-style: preserve-3d;
+      perspective: 1200px;
+      background: linear-gradient(180deg, rgba(12,18,35,0.4), rgba(12,18,35,0.2));
+      border:1px solid rgba(255,255,255,0.03);
     }
-    .portfolio-item:hover {
-      transform: translateY(-6px);
+    .project-inner {
+      padding:14px;
+      transition: transform .28s cubic-bezier(.2,.9,.28,1), box-shadow .28s;
+      transform-origin:center center;
     }
-    .portfolio-item img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
+    .project img{width:100%;height:160px;object-fit:cover;border-radius:10px;margin-bottom:12px;display:block}
+    .project h4{font-size:1.05rem;margin-bottom:6px}
+    .project p{color:var(--muted);font-size:0.92rem}
+
+    .project:hover .project-inner{ transform: translateY(-8px) rotateX(6deg) rotateY(-6deg) scale(1.01); box-shadow: 0 20px 50px rgba(2,6,23,0.6); }
+
+    /* Testimonials carousel simplified */
+    .testimonial-wrap{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:center}
+    .testimonial-card{
+      padding:18px;border-radius:12px;min-width:240px;max-width:340px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.02);
     }
-    .portfolio-item div {
-      padding: 16px;
+    .testimonial-card p{color:var(--muted);margin-top:6px}
+
+    /* Contact form (pro) */
+    .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start}
+    .form-field{display:flex;flex-direction:column;gap:8px}
+    input, textarea {
+      background: rgba(0,0,0,0.18); border-radius:10px;padding:12px;color:#e9f6ff;border:1px solid rgba(255,255,255,0.03);
+      resize:vertical;font-size:0.95rem;
     }
-    .portfolio-item h3 {
-      margin-bottom: 8px;
-      color: var(--secondary-color);
+    input::placeholder, textarea::placeholder{color:rgba(230,238,246,0.35)}
+    button.primary{
+      display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:#071028;font-weight:800;border:none;cursor:pointer;
+    }
+    button[disabled]{opacity:0.6;cursor:not-allowed}
+
+    /* Footer */
+    footer{padding:40px 0;text-align:center;color:var(--muted);font-size:0.95rem}
+
+    /* Responsive */
+    @media (max-width:1100px){
+      .hero{grid-template-columns: 1fr; padding:46px 0}
+      .projects{grid-template-columns: repeat(2,1fr)}
+      .contact-grid{grid-template-columns:1fr}
+      .hero-card{order:-1;margin-bottom:18px}
+    }
+    @media (max-width:700px){
+      .projects{grid-template-columns: 1fr}
+      .wrap{padding:18px}
+      .brand p{display:none}
     }
 
-    /* Testimonials */
-    .testimonial {
-      text-align: center;
-      max-width: 700px;
-      margin: auto;
-    }
-    .testimonial-slide {
-      display: none;
-      opacity: 0;
-      transition: opacity 0.6s ease;
-    }
-    .testimonial-slide.active {
-      display: block;
-      opacity: 1;
-    }
-    .testimonial h3 {
-      color: var(--secondary-color);
-    }
-    .stars {
-      color: gold;
-      font-size: 1.2rem;
-    }
-
-    /* Contact Form */
-    .contact-form {
-      max-width: 600px;
-      margin: 24px auto;
-      display: grid;
-      gap: 14px;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      padding: 12px;
-      border: 1px solid #d1d5db;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-    .contact-form button {
-      background: var(--primary-color);
-      color: white;
-      border: none;
-      padding: 12px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-    .contact-form button:hover {
-      background: var(--secondary-color);
-    }
-    .form-message {
-      text-align: center;
-      margin-top: 8px;
-      font-weight: 600;
-    }
-
-    footer {
-      text-align: center;
-      padding: 32px;
-      background: var(--dark-color);
-      color: var(--text-light);
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 768px) {
-      .hero-content h1 {
-        font-size: 2.2rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero-content h1 {
-        font-size: 1.8rem;
-      }
-      .hero-content p {
-        font-size: 1rem;
-      }
-    }
+    /* tiny utilities */
+    .muted { color:var(--muted) }
+    .small { font-size:0.85rem }
+    .section-title { font-weight:800;margin-bottom:14px;font-size:1.05rem }
   </style>
 </head>
 <body>
-  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme">🌙</button>
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Primary">
+    <a href="#" class="brand" aria-label="Ian Henry home" id="brandLink">
+      <span class="logo" aria-hidden="true"><img src="https://i.imgur.com/yhGCoVa.jpeg" alt="Ian Henry logo" loading="lazy"></span>
+      <div>
+        <h4>Ian Henry</h4>
+        <p>Product Engineer · AI & Apps</p>
+      </div>
+    </a>
 
-  <header>
-    <div class="hero-content">
-      <h1>Ian Henry</h1>
-      <p>Creative Tech Solutions, AI, and Digital Innovations</p>
-      <a href="https://wa.me/254701320114?text=Hello%20Ian%2C%20I%20am%20interested%20in%20your%20services." class="button" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#testimonials">Clients</a>
+      <a href="#contact">Contact</a>
+      <a class="cta" href="https://wa.me/254701320114?text=Hello%20Ian%2C%20I%20am%20interested%20in%20your%20services." target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
     </div>
-  </header>
 
-  <main class="container">
-    <section id="about" class="fade-in">
-      <h2 class="section-title">About Me</h2>
-      <p>
-        I’m Ian Henry, a Nairobi-based developer crafting cutting-edge digital products. I specialize in web development, mobile apps, AI automation, and digital strategy for businesses and individuals ready to grow in the digital era.
-      </p>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </nav>
+
+  <main class="wrap" id="top">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-left">
+        <div class="eyebrow" aria-hidden="true">
+          <!-- small rocket icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2c2.4 0 4.4 2 4.4 4.4 0 1-.4 1.9-1.1 2.6L12 17 6.7 12.1C6 11.4 5.6 10.5 5.6 9.5 5.6 4.9 8.6 2 12 2z" fill="currentColor" /></svg>
+          <span>Open to Collaborations · Nairobi</span>
+        </div>
+
+        <h1 id="hero-title" class="headline">
+          I build production-ready apps & AI systems.
+          <span class="typing" id="typing"></span>
+        </h1>
+
+        <p class="sub">
+          I design and ship products that scale — Web & Mobile, AI automation, and developer-first tools. I focus on simplicity, performance, and outcomes.
+        </p>
+
+        <div class="hero-actions">
+          <a class="cta" href="#work">See My Work</a>
+          <a href="#contact" class="nav-link" style="padding:10px 14px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.04);text-decoration:none;color:var(--muted)">Let’s talk</a>
+        </div>
+
+        <div style="margin-top:24px;color:var(--muted);font-size:0.9rem">
+          <strong>Stack:</strong>
+          <span class="muted small">React · Next.js · Flutter · TensorFlow · Python · Node · PostgreSQL · Docker</span>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-labelledby="card-title" role="complementary">
+        <h3 id="card-title">Hand-picked metrics</h3>
+        <div class="metrics" role="list" aria-label="Selected metrics">
+          <div class="metric" role="listitem"><strong>5+</strong><span>Products shipped</span></div>
+          <div class="metric" role="listitem"><strong>300K+</strong><span>Monthly users (combined)</span></div>
+          <div class="metric" role="listitem"><strong>7x</strong><span>Growth engineering wins</span></div>
+        </div>
+      </aside>
     </section>
 
-    <section id="portfolio" class="fade-in">
-      <h2 class="section-title">Portfolio</h2>
-      <div class="portfolio-list">
-        <div class="portfolio-item">
-          <img loading="lazy" src="https://i.imgur.com/b8Xq2C8.jpeg" alt="E-commerce App Preview">
-          <div>
-            <h3>E-commerce Website</h3>
-            <p>Built with React & Node.js – sleek UI and fast performance.</p>
-          </div>
+    <!-- ABOUT -->
+    <section id="about" class="card" aria-labelledby="aboutTitle">
+      <h2 id="aboutTitle" class="section-title">About</h2>
+      <div class="grid">
+        <div>
+          <p class="muted">I’m Ian Henry — I craft full-stack products and machine learning pipelines that help businesses scale. I combine UX-driven product design with pragmatic engineering: production-quality, observable, and maintainable systems.</p>
+          <ul style="margin-top:12px;color:var(--muted);list-style:none;padding-left:0;display:flex;gap:18px;flex-wrap:wrap">
+            <li class="small"><strong>Education:</strong> BEd (Math & CS) — Tom Mboya University</li>
+            <li class="small"><strong>Location:</strong> Nairobi, Kenya</li>
+            <li class="small"><strong>Email:</strong> <a href="mailto:ian@example.com" style="color:var(--accent-1);text-decoration:none">ian@example.com</a></li>
+          </ul>
         </div>
-        <div class="portfolio-item">
-          <img loading="lazy" src="https://i.imgur.com/MQdnJss.jpeg" alt="Task App">
-          <div>
-            <h3>Task Manager App</h3>
-            <p>Flutter app for task management across devices.</p>
-          </div>
-        </div>
-        <div class="portfolio-item">
-          <img loading="lazy" src="https://i.imgur.com/9EX4D3D.jpeg" alt="AI Chatbot">
-          <div>
-            <h3>AI Chatbot</h3>
-            <p>Built with TensorFlow to enhance customer engagement.</p>
+
+        <div aria-hidden="true" style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end">
+          <div style="min-width:160px;max-width:240px;">
+            <img src="https://i.imgur.com/2v0Y7cR.jpeg" alt="Project screenshot" loading="lazy" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.03)">
           </div>
         </div>
       </div>
     </section>
 
-    <section id="testimonials" class="fade-in">
-      <h2 class="section-title">💬 What Clients Say</h2>
-      <div class="testimonial">
-        <div class="testimonial-slide active">
-          <h3>Jane – Nairobi</h3>
-          <p>“Ian delivered beyond expectations. My app runs smoothly and the UI is stunning!”</p>
-          <div class="stars">★★★★★</div>
-        </div>
-        <div class="testimonial-slide">
-          <h3>David – Mombasa</h3>
-          <p>“Timely and creative. Ian understood my business perfectly and built a great solution.”</p>
-          <div class="stars">★★★★★</div>
-        </div>
-        <div class="testimonial-slide">
-          <h3>Linda – Kisumu</h3>
-          <p>“I was impressed by Ian’s speed and attention to detail. Highly recommended.”</p>
-          <div class="stars">★★★★☆</div>
-        </div>
+    <!-- WORK -->
+    <section id="work" class="card" aria-labelledby="workTitle">
+      <h2 id="workTitle" class="section-title">Selected Work</h2>
+      <div class="projects" id="projectsGrid" aria-live="polite">
+        <!-- Project 1 -->
+        <article class="project" tabindex="0" aria-label="Ecommerce Project">
+          <div class="project-inner">
+            <img src="https://i.imgur.com/b8Xq2C8.jpeg" alt="E-commerce App preview" loading="lazy">
+            <h4>E-commerce Platform</h4>
+            <p class="muted">React, Node.js, PostgreSQL — Optimized checkout flow and Core Web Vitals performance.</p>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project" tabindex="0" aria-label="Task Manager app">
+          <div class="project-inner">
+            <img src="https://i.imgur.com/MQdnJss.jpeg" alt="Task app preview" loading="lazy">
+            <h4>Cross-platform Task App</h4>
+            <p class="muted">Flutter + Firebase — Offline-first sync, end-to-end encryption on notes.</p>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project" tabindex="0" aria-label="AI Chatbot">
+          <div class="project-inner">
+            <img src="https://i.imgur.com/9EX4D3D.jpeg" alt="AI Chatbot preview" loading="lazy">
+            <h4>AI Support Chatbot</h4>
+            <p class="muted">TensorFlow + Transformers — Intent classification + response ranking for support tickets.</p>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section id="contact" class="fade-in">
-      <h2 class="section-title">📩 Contact Me</h2>
-      <form class="contact-form" id="contact-form"
-            action="https://formspree.io/f/xvgwdrlo"
-            method="POST">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="_replyto" placeholder="Your Email" required />
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-        <div id="form-message" class="form-message"></div>
-      </form>
+    <!-- SKILLS -->
+    <section id="skills" class="card" aria-labelledby="skillsTitle">
+      <h2 id="skillsTitle" class="section-title">Core Skills</h2>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <span class="metric" style="min-width:120px"><strong>Product</strong><span class="muted small">Strategy · Roadmaps</span></span>
+        <span class="metric" style="min-width:120px"><strong>Frontend</strong><span class="muted small">React · Next.js</span></span>
+        <span class="metric" style="min-width:120px"><strong>Mobile</strong><span class="muted small">Flutter · Android</span></span>
+        <span class="metric" style="min-width:120px"><strong>ML</strong><span class="muted small">TensorFlow · PyTorch</span></span>
+        <span class="metric" style="min-width:120px"><strong>Infra</strong><span class="muted small">Docker · CI/CD</span></span>
+      </div>
     </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="card" aria-labelledby="testTitle">
+      <h2 id="testTitle" class="section-title">What clients say</h2>
+      <div class="testimonial-wrap" id="testimonialsList">
+        <figure class="testimonial-card" role="group" aria-label="Jane testimonial">
+          <strong>Jane — Nairobi</strong>
+          <p class="muted">“Ian delivered beyond expectations. A reliable partner who ships fast and cares about UX.”</p>
+        </figure>
+        <figure class="testimonial-card" role="group" aria-label="David testimonial">
+          <strong>David — Mombasa</strong>
+          <p class="muted">“Excellent communication, robust code, and measurable growth from his integrations.”</p>
+        </figure>
+        <figure class="testimonial-card" role="group" aria-label="Linda testimonial">
+          <strong>Linda — Kisumu</strong>
+          <p class="muted">“High-quality product thinking and swift implementation. Highly recommended.”</p>
+        </figure>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="card" aria-labelledby="contactTitle">
+      <h2 id="contactTitle" class="section-title">Contact</h2>
+
+      <div class="contact-grid">
+        <form id="contactForm" class="form" aria-label="Contact form" action="https://formspree.io/f/xvgwdrlo" method="POST">
+          <div class="form-field">
+            <label for="name" class="small muted">Your name</label>
+            <input id="name" name="name" type="text" placeholder="Jane Doe" required>
+          </div>
+
+          <div class="form-field">
+            <label for="email" class="small muted">Email</label>
+            <input id="email" name="_replyto" type="email" placeholder="you@example.com" required>
+          </div>
+
+          <div class="form-field" style="grid-column: 1 / -1">
+            <label for="message" class="small muted">Message</label>
+            <textarea id="message" name="message" rows="6" placeholder="Describe your project or opportunity..." required></textarea>
+          </div>
+
+          <div style="display:flex;gap:10px;align-items:center;margin-top:6px">
+            <button type="submit" class="primary" id="submitBtn" aria-live="polite">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M2 12l20-9-9 20-3-8-8-3z" fill="currentColor"/></svg>
+              Send Message
+            </button>
+
+            <div id="formStatus" class="small muted" aria-live="polite" style="margin-left:6px"></div>
+          </div>
+        </form>
+
+        <aside style="padding:12px;border-radius:12px;">
+          <div style="margin-bottom:12px">
+            <strong>Availability</strong>
+            <div class="muted small">Open for freelance & contract (part-time)</div>
+          </div>
+
+          <div style="margin-top:10px">
+            <strong>Quick Links</strong>
+            <ul style="list-style:none;padding-left:0;margin-top:8px" class="muted small">
+              <li><a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" style="color:var(--muted);text-decoration:none">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" style="color:var(--muted);text-decoration:none">LinkedIn</a></li>
+              <li><a href="https://wa.me/254701320114" target="_blank" rel="noopener noreferrer" style="color:var(--muted);text-decoration:none">WhatsApp</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div style="max-width:900px;margin:0 auto">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+          <div class="muted small">© <strong>Ian Henry</strong> · 2025 · Nairobi</div>
+          <div class="muted small">Built with care • <a href="#top" style="color:var(--accent-2);text-decoration:none">Back to top</a></div>
+        </div>
+      </div>
+    </footer>
   </main>
 
-  <footer>© 2025 Ian Henry. All rights reserved.</footer>
-
+  <!-- Lightweight JS: typing, mobile menu, tilt, parallax, form -->
   <script>
-    // Theme toggle
-    const toggle = document.getElementById('themeToggle');
-    toggle.addEventListener('click', () => {
-      document.body.dataset.theme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
-      toggle.textContent = document.body.dataset.theme === 'dark' ? '☀️' : '🌙';
-      localStorage.setItem('theme', document.body.dataset.theme);
-    });
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      document.body.dataset.theme = savedTheme;
-      toggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-    }
+    /************* Utilities *************/
+    const $ = sel => document.querySelector(sel);
+    const $$ = sel => Array.from(document.querySelectorAll(sel));
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Fade-in on scroll
-    const fadeEls = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.2 });
-    fadeEls.forEach(el => observer.observe(el));
-
-    // Testimonials auto-rotate
-    let slides = document.querySelectorAll('.testimonial-slide');
-    let idx = 0;
-    setInterval(() => {
-      slides[idx].classList.remove('active');
-      idx = (idx + 1) % slides.length;
-      slides[idx].classList.add('active');
-    }, 5000);
-
-    // Contact form submission with button lock
-    const form = document.getElementById('contact-form');
-    const messageDiv = document.getElementById('form-message');
-    form.addEventListener('submit', async e => {
-      e.preventDefault();
-      const button = form.querySelector('button');
-      button.disabled = true;
-      button.textContent = 'Sending...';
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { Accept: 'application/json' }
-      });
-      button.disabled = false;
-      button.textContent = 'Send Message';
-      if (res.ok) {
-        messageDiv.textContent = '✅ Message sent successfully!';
-        messageDiv.style.color = 'green';
-        form.reset();
+    /************* Mobile menu toggle *************/
+    const menuBtn = $('#menuToggle');
+    const navLinks = $('#navLinks');
+    menuBtn && menuBtn.addEventListener('click', (e) => {
+      const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', String(!expanded));
+      if (navLinks.style.display === 'flex') {
+        navLinks.style.display = '';
       } else {
-        messageDiv.textContent = '❌ Error sending message. Please try again.';
-        messageDiv.style.color = 'red';
+        navLinks.style.display = 'flex';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.gap = '8px';
+        navLinks.style.padding = '12px';
+        navLinks.style.alignItems = 'stretch';
       }
     });
 
-    // Disable image dragging only
-    document.addEventListener('dragstart', e => {
-      if (e.target.tagName === 'IMG') e.preventDefault();
+    // Close mobile menu when link clicked
+    Array.from(document.querySelectorAll('.nav-links a')).forEach(a => {
+      a.addEventListener('click', () => {
+        if (window.innerWidth <= 900 && navLinks) {
+          navLinks.style.display = '';
+          menuBtn && menuBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
     });
+
+    /************* Typing effect (JS, lightweight) *************/
+    (function typing(){
+      const target = document.getElementById('typing');
+      if (!target) return;
+      const phrases = ['AI-driven automation', 'fast & accessible apps', 'scalable backend systems', 'data-informed growth'];
+      let i = 0, j = 0, forward = true;
+      function step(){
+        const word = phrases[i];
+        if (forward) {
+          target.textContent = word.slice(0, j+1);
+          j++;
+          if (j === word.length){ forward = false; setTimeout(step, 900); return; }
+        } else {
+          target.textContent = word.slice(0, j-1);
+          j--;
+          if (j === 0){ forward = true; i = (i+1)%phrases.length; setTimeout(step, 300); return; }
+        }
+        setTimeout(step, forward ? 45 : 28);
+      }
+      if (!prefersReduced) step();
+      else target.textContent = phrases[0];
+    })();
+
+    /************* Simple 3D tilt for project cards *************/
+    (function tilt(){
+      const cards = $$('.project');
+      if (!cards.length) return;
+      cards.forEach(card => {
+        const inner = card.querySelector('.project-inner');
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const px = (e.clientX - rect.left) / rect.width;
+          const py = (e.clientY - rect.top) / rect.height;
+          const rx = (py - 0.5) * 12;
+          const ry = (px - 0.5) * -12;
+          inner.style.transform = `translateY(-6px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.01)`;
+        });
+        card.addEventListener('mouseleave', () => {
+          inner.style.transform = '';
+        });
+        // keyboard focus interaction
+        card.addEventListener('focus', () => {
+          inner.style.transform = `translateY(-8px) scale(1.01)`;
+        });
+        card.addEventListener('blur', () => {
+          inner.style.transform = '';
+        });
+      });
+    })();
+
+    /************* Parallax subtle scroll on hero shapes *************/
+    (function parallax(){
+      const hero = document.querySelector('.hero');
+      if (!hero || prefersReduced) return;
+      window.addEventListener('scroll', () => {
+        const s = window.scrollY;
+        hero.style.transform = `translateY(${s * -0.02}px)`;
+        hero.style.opacity = 1 - Math.min(s / 1200, 0.18);
+      }, { passive: true });
+    })();
+
+    /************* Basic reveal on scroll (IntersectionObserver) *************/
+    (function reveal(){
+      if (prefersReduced) return;
+      const sections = document.querySelectorAll('section.card, .project, .testimonial-card');
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) e.target.style.transform = 'translateY(0)', e.target.style.opacity = 1, e.target.style.transition = 'opacity .6s ease, transform .6s cubic-bezier(.2,.9,.28,1)';
+          else { /* leave as-is to maintain performance */ }
+        });
+      }, { threshold: 0.12 });
+      sections.forEach(s => {
+        s.style.opacity = 0;
+        s.style.transform = 'translateY(18px)';
+        io.observe(s);
+      });
+    })();
+
+    /************* Contact form: prevent double submit and show results *************/
+    (function formHandler(){
+      const form = document.getElementById('contactForm');
+      if (!form) return;
+      const btn = document.getElementById('submitBtn');
+      const status = document.getElementById('formStatus');
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        btn.disabled = true;
+        status.textContent = 'Sending...';
+        try {
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            status.textContent = '✅ Message sent. I will reply soon.';
+            form.reset();
+          } else {
+            status.textContent = '❌ Error sending message. Try again later.';
+          }
+        } catch(err) {
+          status.textContent = '❌ Network error. Check connection.';
+        } finally {
+          btn.disabled = false;
+        }
+      });
+    })();
+
+    /************* Accessibility: keyboard "skip to top" via brand link *************/
+    document.getElementById('brandLink').addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    /************* Smooth scroll polyfill for anchors (modern browsers already support it) *************/
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const href = a.getAttribute('href');
+        if (href === '#') return;
+        const el = document.querySelector(href);
+        if (el) {
+          e.preventDefault();
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          history.replaceState(null, '', href);
+        }
+      });
+    });
+
+    /************* Small: prevent image drag but allow text selection & right click *************/
+    document.addEventListener('dragstart', e => {
+      if (e.target && e.target.nodeName === 'IMG') e.preventDefault();
+    });
+
+    /************* Performance: lazy images "loading=lazy" already used; optional IntersectionObserver preloading could be added here *************/
   </script>
 </body>
 </html>
