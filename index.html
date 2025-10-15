@@ -12,8 +12,16 @@
   <meta name="description" content="Ian Henry – Nairobi-based tech innovator specializing in web development, mobile apps, AI, and digital strategy." />
   <meta name="author" content="Ian Henry" />
 
-  <!-- Favicon -->
+  <!-- Open Graph for Social Sharing -->
+  <meta property="og:title" content="Ian Henry | Tech Innovations" />
+  <meta property="og:description" content="Nairobi-based tech innovator specializing in AI, web & app development." />
+  <meta property="og:image" content="https://i.imgur.com/yhGCoVa.jpeg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourwebsite.com" />
+
+  <!-- Favicons -->
   <link rel="icon" href="https://i.imgur.com/yhGCoVa.jpeg" type="image/jpeg" />
+  <link rel="icon" href="favicon.png" type="image/png" />
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" />
@@ -42,12 +50,15 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       background: var(--light-bg);
       color: var(--text-dark);
       line-height: 1.7;
-      scroll-behavior: smooth;
       transition: background 0.4s, color 0.4s;
       user-select: none;
     }
@@ -221,6 +232,7 @@
       border-radius: 8px;
       cursor: pointer;
       font-weight: 600;
+      transition: all 0.3s ease;
     }
     .contact-form button:hover {
       background: var(--secondary-color);
@@ -248,10 +260,19 @@
         font-size: 2.2rem;
       }
     }
+
+    @media (max-width: 480px) {
+      .hero-content h1 {
+        font-size: 1.8rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme">🌙</button>
 
   <header>
     <div class="hero-content">
@@ -273,21 +294,21 @@
       <h2 class="section-title">Portfolio</h2>
       <div class="portfolio-list">
         <div class="portfolio-item">
-          <img src="https://i.imgur.com/b8Xq2C8.jpeg" alt="E-commerce App Preview">
+          <img loading="lazy" src="https://i.imgur.com/b8Xq2C8.jpeg" alt="E-commerce App Preview">
           <div>
             <h3>E-commerce Website</h3>
             <p>Built with React & Node.js – sleek UI and fast performance.</p>
           </div>
         </div>
         <div class="portfolio-item">
-          <img src="https://i.imgur.com/MQdnJss.jpeg" alt="Task App">
+          <img loading="lazy" src="https://i.imgur.com/MQdnJss.jpeg" alt="Task App">
           <div>
             <h3>Task Manager App</h3>
             <p>Flutter app for task management across devices.</p>
           </div>
         </div>
         <div class="portfolio-item">
-          <img src="https://i.imgur.com/9EX4D3D.jpeg" alt="AI Chatbot">
+          <img loading="lazy" src="https://i.imgur.com/9EX4D3D.jpeg" alt="AI Chatbot">
           <div>
             <h3>AI Chatbot</h3>
             <p>Built with TensorFlow to enhance customer engagement.</p>
@@ -365,16 +386,21 @@
       slides[idx].classList.add('active');
     }, 5000);
 
-    // Contact form submission
+    // Contact form submission with button lock
     const form = document.getElementById('contact-form');
     const messageDiv = document.getElementById('form-message');
     form.addEventListener('submit', async e => {
       e.preventDefault();
+      const button = form.querySelector('button');
+      button.disabled = true;
+      button.textContent = 'Sending...';
       const res = await fetch(form.action, {
         method: 'POST',
         body: new FormData(form),
         headers: { Accept: 'application/json' }
       });
+      button.disabled = false;
+      button.textContent = 'Send Message';
       if (res.ok) {
         messageDiv.textContent = '✅ Message sent successfully!';
         messageDiv.style.color = 'green';
@@ -385,9 +411,10 @@
       }
     });
 
-    // Disable right-click & drag
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('dragstart', e => e.preventDefault());
+    // Disable image dragging only
+    document.addEventListener('dragstart', e => {
+      if (e.target.tagName === 'IMG') e.preventDefault();
+    });
   </script>
 </body>
 </html>
