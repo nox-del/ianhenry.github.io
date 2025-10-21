@@ -70,17 +70,55 @@
     /* Basic reset */
     *{box-sizing:border-box;border:0;margin:0;padding:0}
     html,body{height:100%}
-    body{
-      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: radial-gradient(1200px 600px at 10% 10%, rgba(96,165,250,0.06), transparent),
-                  radial-gradient(1000px 500px at 90% 80%, rgba(110,231,183,0.04), transparent),
-                  var(--bg);
-      color: #e6eef6;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.5;
-      -webkit-tap-highlight-color: transparent;
-      transition: background .45s ease;
+    
+  /* ===== Blue Theme ===== */
+body {
+  background-color: #0a192f;   /* deep blue background */
+  color: #e6f1ff;              /* soft white text */
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Headings */
+h1, h2, h3 {
+  color: #64ffda; /* aqua-blue highlight */
+}
+
+/* Links */
+a {
+  color: #48cae4; /* sky blue */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #90e0ef; /* lighter hover color */
+}
+
+/* Sections (cards or containers) */
+section {
+  background: rgba(255, 255, 255, 0.05); /* subtle glass effect */
+  padding: 40px;
+  border-radius: 15px;
+  margin: 20px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Buttons */
+button, .btn {
+  background-color: #0077b6;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover, .btn:hover {
+  background-color: #00b4d8;
+  transform: scale(1.05);
     }
 
     /* Respect reduced motion */
