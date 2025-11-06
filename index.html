@@ -1,1052 +1,372 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Ian Henry — Advanced Product Engineering</title>
-
-  <!-- Basic SEO & Security -->
+  <!-- Primary Meta -->
   <meta name="description" content="Ian Henry — Nairobi-based product engineer: Web, Mobile, AI, and Growth. Available for freelance & collaborations." />
   <meta name="author" content="Ian Henry" />
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta http-equiv="X-Frame-Options" content="DENY" />
   <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#0a192f" />
-
+  <meta name="theme-color" content="#001f3f" />
   <!-- OpenGraph -->
   <meta property="og:title" content="Ian Henry — Advanced Product Engineering" />
   <meta property="og:description" content="Nairobi-based product engineer: Web, Mobile, AI, and Growth." />
-  <meta property="og:image" content="https://i.imgur.com/yhGCoVa.jpeg" />
+  <meta property="og:image" content="https://pbs.twimg.com/profile_images/1934185313066532864/aAPOX_D6.jpg" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ianhenrytech.github.io/" />
-
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ian Henry — Product Engineer" />
+  <meta name="twitter:creator" content="@iannhenry003" />
 
-  <!-- Fonts -->
+  <!-- Fonts & Performance Hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
-  <!-- Favicons -->
-  <link rel="icon" href="https://placehold.co/100x100/0d1b2a/64ffda?text=IH&font=inter" type="image/png">
+  <link rel="icon" href="https://pbs.twimg.com/profile_images/1934185313066532864/aAPOX_D6.jpg" type="image/png">
 
   <style>
-    /*
-      ===============================================
-      Advanced "Pro Tech" Portfolio
-      - Aesthetic: Dark Navy, Electric Aqua, Glassmorphism
-      - Features: Animated grid BG, glow effects, 3D tilt
-      - Author: Gemini (inspired by "Bill Gates" prompt)
-      ===============================================
-    */
+  /* ==================================================
+     Titan Portfolio — Single-file professional build
+     - Clean, accessible, performant
+     - Theme toggle, keyboard-first focus states
+     - Lightweight animations & progressive enhancement
+     ================================================== */
+  :root{
+    --bg: #001f3f; --panel:#002b5b; --accent:#00aaff; --accent-2:#66ccff; --accent-red:#e82127;
+    --text:#e6f1ff; --muted:#9fb2cc; --glass: rgba(0,47,95,0.7); --glass-border: rgba(0,170,255,0.12);
+    --radius:12px; --shadow: 0 20px 40px rgba(0,0,0,0.6);
+    --mono: 'JetBrains Mono', monospace; --ui: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto;
+  }
+  /* Light theme variant (toggle by adding .light on html) */
+  html.light{
+    --bg: #f7fafc; --panel:#ffffff; --accent:#0066b8; --accent-2:#0b84ff; --accent-red:#c32026;
+    --text:#051022; --muted:#5b6b7a; --glass: rgba(255,255,255,0.9); --glass-border: rgba(3,102,214,0.07);
+    --shadow: 0 10px 30px rgba(2,6,23,0.06);
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{font-family:var(--ui);background:var(--bg);color:var(--text);margin:0;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.5}
+  a{color:var(--accent);text-decoration:none}
+  img{max-width:100%;display:block}
 
-    :root {
-      --bg: #0d1b2a; /* Made background a richer blue */
-      --panel: #1b263b; /* Adjusted panel color */
-      --accent: #64ffda;
-      --accent-light: #b0fff0;
-      --accent-dark: #002b23;
-      --accent-blue: #41a5f5; /* Brighter accent blue */
-      --text-light: #e6f1ff;
-      --text-mid: #ccd6f6;
-      --text-muted: #8892b0;
-      
-      --glass-bg: rgba(27, 38, 59, 0.65); /* Updated to match panel */
-      --glass-border: rgba(100, 255, 218, 0.1);
-      
-      --radius-md: 12px;
-      --radius-lg: 16px;
-      
-      --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.4);
-      --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.3);
-      --shadow-accent: 0 0 30px rgba(100, 255, 218, 0.15);
-      
-      --font-main: "Inter", sans-serif;
-      --font-mono: "JetBrains Mono", monospace;
-    }
+  /* Skip link */
+  .skip{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+  .skip:focus{left:16px;top:16px;width:auto;height:auto;padding:8px 12px;border-radius:6px;background:var(--panel);box-shadow:var(--shadow);z-index:9999}
 
-    /* ===== Basic Reset & Global ===== */
-    * {
-      box-sizing: border-box;
-      border: 0;
-      margin: 0;
-      padding: 0;
-    }
+  /* Nav */
+  .nav{position:sticky;top:18px;display:flex;align-items:center;gap:16px;padding:10px 18px;margin:0 auto;max-width:1200px;background:var(--glass);backdrop-filter:blur(10px);border-radius:14px;border:1px solid var(--glass-border);box-shadow:var(--shadow)}
+  .brand{display:flex;gap:12px;align-items:center}
+  .logo{width:48px;height:48px;border-radius:50%;overflow:hidden;border:1px solid rgba(255,255,255,0.06)}
+  .logo img{width:100%;height:100%;object-fit:cover}
+  .brand h4{margin:0;font-size:1rem}
+  .nav-links{margin-left:auto;display:flex;gap:12px;align-items:center}
+  .nav-links a{padding:8px 12px;border-radius:8px;font-weight:600}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;font-weight:700;border:none;cursor:pointer}
+  .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#002033;box-shadow:0 6px 22px rgba(0,170,255,0.12)}
+  .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--text)}
 
-    html {
-      scroll-behavior: smooth;
-    }
+  /* Container */
+  .wrap{max-width:1200px;margin:0 auto;padding:28px}
 
-    body {
-      background-color: var(--bg);
-      color: var(--text-mid);
-      font-family: var(--font-main);
-      font-size: 16px;
-      line-height: 1.6;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+  /* Hero */
+  .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;min-height:72vh;padding:40px 0}
+  .hero-left{max-width:920px}
+  .eyebrow{display:flex;align-items:center;gap:10px;color:var(--muted);font-weight:600}
+  h1{font-size:clamp(2.2rem,4vw,3.6rem);margin:12px 0;line-height:1}
+  .headline-grad{background:linear-gradient(92deg,var(--text),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .typing{font-family:var(--mono);margin-top:8px;color:var(--accent-2)}
+  .sub{max-width:60ch;color:var(--muted);margin-top:16px}
 
-    /* Animated Dot Grid Background */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background-image: radial-gradient(var(--text-muted) 0.5px, transparent 0.5px);
-      background-size: 30px 30px;
-      opacity: 0.1;
-      z-index: -2;
-      animation: pan-grid 60s linear infinite;
-    }
-    
-    /* Background Spotlight Effect */
-    body::after {
-      content: '';
-      position: fixed;
-      top: -10vh;
-      left: -10vw;
-      width: 120vw;
-      height: 120vh;
-      background: radial-gradient(circle at 20% 20%, rgba(65, 165, 245, 0.1), transparent 40%), /* Updated to new accent blue */
-                  radial-gradient(circle at 80% 70%, rgba(100, 255, 218, 0.08), transparent 35%);
-      z-index: -1;
-      opacity: 0.7;
-    }
+  /* Hero card */
+  .hero-card{background:linear-gradient(180deg,rgba(255,255,255,0.03),transparent);padding:20px;border-radius:14px;border:1px solid var(--glass-border);box-shadow:0 8px 30px rgba(0,0,0,0.35)}
+  .metrics{display:flex;flex-direction:column;gap:10px}
+  .metric{display:flex;justify-content:space-between;align-items:center}
+  .metric strong{font-size:1.4rem}
 
-    @keyframes pan-grid {
-      0% { background-position: 0 0; }
-      100% { background-position: 30px 30px; }
-    }
+  /* Sections */
+  .card{background:var(--panel);padding:28px;border-radius:14px;border:1px solid var(--glass-border);box-shadow:var(--shadow);color:var(--text)}
+  .grid{display:grid;gap:20px}
+  .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+  .project{overflow:hidden;border-radius:12px;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.02));padding:14px}
+  .project img{border-radius:8px}
+  .skills{display:flex;gap:10px;flex-wrap:wrap}
+  .skill{background:rgba(0,0,0,0.06);padding:10px 12px;border-radius:10px;font-weight:700}
 
-    /* Headings & Text */
-    h1, h2, h3, h4, strong {
-      color: var(--text-light);
-      font-weight: 600;
-    }
-    
-    h1 { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; font-weight: 900; }
-    h2 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); font-weight: 600; margin-bottom: 20px; }
-    h3 { font-size: 1.5rem; }
-    h4 { font-size: 1.15rem; margin-bottom: 8px; }
+  /* Contact grid */
+  .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
+  form input, form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--text)}
+  form label{display:block;margin-bottom:8px;color:var(--muted);font-weight:600}
 
-    p { margin-bottom: 16px; }
-    a { color: var(--accent); text-decoration: none; transition: color 0.2s ease; }
-    a:hover, a:focus { color: var(--accent-light); outline: none; }
+  /* Footer */
+  footer{text-align:center;padding:28px;color:var(--muted);font-size:0.9rem}
 
-    /* Layout */
-    .wrap {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 28px;
-    }
+  /* Responsive */
+  @media (max-width:980px){.hero{grid-template-columns:1fr}.nav{padding:10px}.nav-links{display:none}}
+  @media (max-width:560px){.contact-grid{grid-template-columns:1fr}.nav{flex-direction:row;gap:8px}.brand p{display:none}}
 
-    /* Utility */
-    .muted { color: var(--text-muted); }
-    .small { font-size: 0.9rem; }
-    .mono { font-family: var(--font-mono); }
-    .accent { color: var(--accent); }
+  /* Focus & accessibility */
+  :focus{outline:3px solid rgba(0,170,255,0.14);outline-offset:3px}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
-    /* Respect reduced motion */
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.001ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.001ms !important;
-        scroll-behavior: auto !important;
-      }
-      body::before { animation: none; }
-    }
-
-    /* ===== NAV ===== */
-    .nav {
-      position: sticky;
-      top: 18px;
-      z-index: 60;
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: center;
-      margin: 0 auto;
-      width: calc(100% - 56px);
-      max-width: var(--max-width);
-      background: var(--glass-bg);
-      backdrop-filter: blur(10px) saturate(1.2);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius-lg);
-      padding: 10px 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    }
-    @media (max-width: 900px) { .nav { width: calc(100% - 36px); top: 10px; } }
-
-    .brand {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      text-decoration: none;
-      color: inherit;
-    }
-    .logo {
-      width: 44px; height: 44px;
-      border-radius: 8px;
-      overflow: hidden;
-      flex: 0 0 44px;
-      border: 1px solid rgba(100, 255, 218, 0.2);
-    }
-    .logo img { width: 100%; height: 100%; object-fit: cover; }
-    .brand h4 { font-size: 1.1rem; font-weight: 700; color: var(--text-light); }
-    .brand p { font-size: 0.8rem; color: var(--text-muted); margin-top: 0; margin-bottom: 0; }
-
-    .nav-links {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      margin-left: auto;
-    }
-    .nav-links a {
-      padding: 10px 14px;
-      border-radius: 8px;
-      color: var(--text-mid);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: background 0.2s ease, color 0.2s ease;
-    }
-    .nav-links a:focus,
-    .nav-links a:hover {
-      color: var(--accent);
-      background: rgba(100, 255, 218, 0.05);
-      outline: none;
-    }
-
-    /* CTA Button (Base Style) */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      text-decoration: none;
-      cursor: pointer;
-      transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
-    
-    .btn-primary {
-      background: var(--accent);
-      color: var(--bg);
-      box-shadow: 0 4px 15px rgba(100, 255, 218, 0.1);
-    }
-    .btn-primary:hover, .btn-primary:focus {
-      background: var(--accent-light);
-      color: var(--bg);
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 8px 25px rgba(100, 255, 218, 0.3);
-    }
-    
-    .btn-secondary {
-      background: transparent;
-      color: var(--accent);
-      border: 1px solid var(--accent);
-    }
-    .btn-secondary:hover, .btn-secondary:focus {
-      background: rgba(100, 255, 218, 0.08);
-      color: var(--accent);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-accent);
-    }
-    
-    button.btn[disabled] {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
-      box-shadow: none;
-    }
-
-    /* Mobile menu */
-    .menu-toggle {
-      display: none;
-      background: transparent;
-      border-radius: 8px;
-      padding: 8px;
-      color: var(--text-mid);
-      margin-left: auto;
-      cursor: pointer;
-    }
-    .menu-toggle svg { width: 24px; height: 24px; display: block; }
-    .menu-toggle:hover { color: var(--accent); }
-
-    @media (max-width: 900px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        gap: 8px;
-        padding: 12px;
-        align-items: stretch;
-        position: absolute;
-        top: calc(100% + 10px);
-        left: 0;
-        right: 0;
-        width: 100%;
-        background: var(--panel);
-        border: 1px solid var(--glass-border);
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-lg);
-      }
-      .nav-links.open { display: flex; }
-      .nav-links a { width: 100%; text-align: center; }
-      .nav-links .btn { width: 100%; }
-      .menu-toggle { display: inline-flex; }
-    }
-
-    /* ===== Base Card Style ===== */
-    .card {
-      margin: 48px 0;
-      padding: 32px;
-      border-radius: var(--radius-lg);
-      background: var(--panel);
-      border: 1px solid var(--glass-border);
-      box-shadow: var(--shadow-md);
-      position: relative;
-      overflow: hidden;
-      /* Glow effect */
-      background: linear-gradient(135deg, var(--panel) 0%, #1a2f4b 100%);
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: radial-gradient(circle at 90% 10%, rgba(100, 255, 218, 0.03), transparent 30%),
-                  radial-gradient(circle at 10% 80%, rgba(72, 202, 228, 0.04), transparent 40%);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      z-index: 0;
-    }
-    
-    .card:hover::before {
-      opacity: 1;
-    }
-    
-    .card > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* ===== HERO ===== */
-    .hero {
-      min-height: 86vh;
-      display: grid;
-      grid-template-columns: 1fr 420px;
-      gap: 36px;
-      align-items: center;
-      padding: 80px 0;
-      position: relative;
-    }
-    
-    .hero-left {
-      padding-right: 20px;
-      animation: fadeIn 1s ease-out 0.2s both;
-      animation-delay: 0.2s;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--accent);
-      font-weight: 600;
-      font-size: 0.95rem;
-      font-family: var(--font-mono);
-      margin-bottom: 24px;
-    }
-    .eyebrow svg { opacity: 0.95; }
-
-    .headline {
-      background: linear-gradient(90deg, var(--text-light), var(--text-mid));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 16px;
-    }
-    
-    .typing {
-      display: inline-block;
-      color: var(--accent);
-      font-weight: 700;
-      font-family: var(--font-mono);
-      font-size: clamp(1rem, 2vw, 1.5rem);
-      margin-left: 10px;
-      min-height: 2.2rem;
-    }
-
-    .sub {
-      color: var(--text-muted);
-      font-size: 1.1rem;
-      margin-top: 24px;
-      max-width: 52ch;
-    }
-
-    .hero-actions {
-      margin-top: 32px;
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .stack {
-      margin-top: 32px;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-    .stack strong { color: var(--text-mid); }
-    .stack span { font-family: var(--font-mono); font-size: 0.85rem; }
-
-    /* Hero Right Card (Glass) */
-    .hero-card {
-      background: var(--glass-bg);
-      border-radius: 20px;
-      padding: 24px;
-      min-height: 300px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      box-shadow: var(--shadow-lg), var(--shadow-accent);
-      border: 1px solid var(--glass-border);
-      backdrop-filter: blur(12px) saturate(1.1);
-      position: relative;
-      animation: fadeIn 1s ease-out 0.4s both;
-    }
-    
-    /* Inner glow for hero card */
-    .hero-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 20px;
-      padding: 1px;
-      background: linear-gradient(135deg, rgba(100, 255, 218, 0.2), rgba(72, 202, 228, 0.1));
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      z-index: 0;
-    }
-    
-    .hero-card > * { position: relative; z-index: 1; }
-    
-    .hero-card h3 {
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-      color: var(--accent-blue);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .metrics { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
-    .metric {
-      background: rgba(0, 0, 0, 0.15);
-      padding: 14px 18px;
-      border-radius: 10px;
-      min-width: 120px;
-      text-align: center;
-      border: 1px solid rgba(100, 255, 218, 0.05);
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
-    .metric:hover {
-      background: rgba(0, 0, 0, 0.25);
-      transform: translateY(-3px);
-    }
-    .metric strong { display: block; font-size: 1.5rem; font-weight: 800; color: #fff; }
-    .metric span { display: block; color: var(--text-muted); font-size: 0.85rem; margin-top: 6px; }
-
-    /* ===== SECTIONS ===== */
-    .grid { display: grid; gap: 24px; }
-    
-    #about .grid { grid-template-columns: 1fr 280px; align-items: start; }
-    #about img {
-      width: 100%;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--glass-border);
-      box-shadow: var(--shadow-md);
-    }
-    #about ul { list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
-    #about li { font-size: 0.95rem; }
-
-    /* Project Grid */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .project {
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      transform-style: preserve-3d;
-      perspective: 1200px;
-      background: linear-gradient(180deg, rgba(23, 42, 69, 0.4), var(--panel));
-      border: 1px solid var(--glass-border);
-      box-shadow: var(--shadow-md);
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-    }
-    .project-inner {
-      padding: 20px;
-      transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.28, 1), box-shadow 0.3s;
-      transform-origin: center center;
-      will-change: transform;
-    }
-    .project img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 16px;
-      display: block;
-      border: 1px solid rgba(100, 255, 218, 0.05);
-    }
-    .project h4 {
-      font-size: 1.2rem;
-      margin-bottom: 8px;
-      color: var(--text-mid);
-    }
-    .project:hover h4 { color: var(--accent); }
-    .project p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0; }
-
-    .project:hover {
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), var(--shadow-accent);
-      transform: translateY(-5px);
-    }
-    
-    /* Skills */
-    .skills-wrap { display: flex; gap: 12px; flex-wrap: wrap; }
-    .skill-chip {
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      padding: 12px 18px;
-      border-radius: 8px;
-      text-align: center;
-      transition: all 0.2s ease;
-    }
-    .skill-chip:hover {
-      background: rgba(100, 255, 218, 0.05);
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-accent);
-    }
-    .skill-chip strong { display: block; font-size: 1rem; color: var(--text-mid); }
-    .skill-chip span { display: block; color: var(--text-muted); font-size: 0.85rem; margin-top: 4px; }
-
-    /* Testimonials */
-    .testimonial-wrap {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .testimonial-card {
-      padding: 24px;
-      border-radius: var(--radius-md);
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-    }
-    .testimonial-card p {
-      color: var(--text-mid);
-      font-style: italic;
-      font-size: 1.05rem;
-      margin-bottom: 12px;
-      position: relative;
-      padding-left: 20px;
-    }
-    .testimonial-card p::before {
-      content: '“';
-      position: absolute;
-      left: 0; top: -5px;
-      font-size: 2rem;
-      color: var(--accent);
-      font-weight: 700;
-    }
-    .testimonial-card strong {
-      display: block;
-      margin-top: 12px;
-      color: var(--text-muted);
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
-
-    /* Contact Form */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 32px;
-      align-items: start;
-    }
-    .form { display: flex; flex-direction: column; gap: 20px; }
-    .form-field { display: flex; flex-direction: column; gap: 8px; }
-    .form-field label { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
-    
-    input, textarea {
-      background: rgba(0, 0, 0, 0.25);
-      border: 1px solid var(--glass-border);
-      border-radius: 8px;
-      padding: 14px;
-      color: var(--text-light);
-      font-size: 1rem;
-      font-family: var(--font-main);
-      resize: vertical;
-      transition: all 0.2s ease;
-    }
-    input::placeholder, textarea::placeholder {
-      color: rgba(136, 146, 176, 0.6);
-    }
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 15px rgba(100, 255, 218, 0.2);
-      background: rgba(0, 0, 0, 0.2);
-    }
-    textarea { min-height: 120px; }
-    
-    .contact-aside strong { display: block; color: var(--text-mid); margin-bottom: 4px; }
-    .contact-aside .muted { font-size: 0.95rem; }
-    .contact-aside ul { list-style: none; padding-left: 0; margin-top: 12px; }
-    .contact-aside li { margin-bottom: 8px; }
-    .contact-aside a {
-      color: var(--text-muted);
-      font-weight: 500;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .contact-aside a:hover { color: var(--accent); }
-
-    #formStatus { margin-left: 12px; font-size: 0.9rem; }
-
-    /* ===== FOOTER ===== */
-    footer {
-      padding: 40px 28px;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      border-top: 1px solid var(--glass-border);
-      margin-top: 48px;
-    }
-    footer a { font-weight: 600; }
-
-    /* ===== Responsive ===== */
-    @media (max-width: 1100px) {
-      .hero { grid-template-columns: 1fr; padding: 46px 0; }
-      .hero-card { order: -1; margin-bottom: 18px; max-width: 600px; margin-left: auto; margin-right: auto; }
-      .projects { grid-template-columns: repeat(2, 1fr); }
-      .contact-grid { grid-template-columns: 1fr; }
-    }
-    
-    @media (max-width: 700px) {
-      .projects { grid-template-columns: 1fr; }
-      .wrap { padding: 18px; }
-      .brand p { display: none; }
-      #about .grid { grid-template-columns: 1fr; }
-      #about img { display: none; } /* Hide image on small screens to save space */
-      .card { padding: 24px; }
-    }
-
-    /* ===== Reveal on Scroll ===== */
-    .card, .project, .testimonial-card, .skill-chip {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.2, 0.9, 0.28, 1);
-    }
-    .card.is-visible, 
-    .project.is-visible,
-    .testimonial-card.is-visible,
-    .skill-chip.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
+  /* Reduced motion respects */
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
   </style>
 </head>
 <body>
-  <!-- Skip link for accessibility -->
-  <a href="#main" class="small" 
-   style="position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;">
-   Skip to content
-  </a>
-
-  <!-- NAV -->
-  <nav class="nav" role="navigation" aria-label="Primary">
-    <a href="#" class="brand" aria-label="Ian Henry home" id="brandLink">
-      <span class="logo" aria-hidden="true"><img src="https://placehold.co/100x100/0d1b2a/64ffda?text=IH&font=inter" alt="Ian Henry logo" loading="lazy"></span>
-      <div>
-        <h4>Ian Henry</h4>
-        <p>Product Engineer</p>
+  <a href="#main" class="skip">Skip to content</a>
+  <div class="wrap" id="main">
+    <!-- NAV -->
+    <nav class="nav" role="navigation" aria-label="Primary navigation">
+      <a class="brand" href="#hero" aria-label="Ian Henry homepage">
+        <span class="logo" aria-hidden="true"><img src="https://pbs.twimg.com/profile_images/1934185313066532864/aAPOX_D6.jpg" alt="Ian Henry logo" width="48" height="48" loading="lazy"></span>
+        <div>
+          <h4>Ian Henry</h4>
+          <div class="muted small">Product Engineer</div>
+        </div>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#testimonials">Clients</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-primary" href="https://wa.me/254701320114?text=Hey%20Ian%2C%20saw%20your%20portfolio%20-%20let%E2%80%99s%20talk%20about%20a%20project&utm_source=portfolio" target="_blank" rel="noopener noreferrer">Chat</a>
       </div>
-    </a>
+      <div style="display:flex;gap:8px;align-items:center;margin-left:12px">
+        <button id="themeToggle" class="btn btn-ghost" aria-pressed="false" title="Toggle theme">Theme</button>
+        <button id="menuToggle" class="btn btn-ghost" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 6h18M3 18h18"></path></svg>
+        </button>
+      </div>
+    </nav>
 
-    <div class="nav-links" id="navLinks">
-      <a href="#about">About</a>
-      <a href="#work">Work</a>
-      <a href="#skills">Skills</a>
-      <a href="#testimonials">Clients</a>
-      <a href="#contact">Contact</a>
-      <a class="btn btn-primary" style="margin-left:10px; padding:10px 14px;" href="https://wa.me/254701320114?text=Hello%20Ian%2C%20I%20am%20interested%20in%20your%20services." target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
-    </div>
-
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-    </button>
-  </nav>
-
-  <main class="wrap" id="main">
-    
     <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-title">
+    <header class="hero" id="hero" role="banner">
       <div class="hero-left">
-        <div class="eyebrow" aria-hidden="true">
-          <!-- small location icon -->
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-4.418 0-8 3.582-8 8 0 6.038 7.333 11.77 7.69 12.08.197.169.46.26.73.26s.533-.091.73-.26C12.667 21.77 20 16.038 20 10c0-4.418-3.582-8-8-8zm0 11.5c-1.933 0-3.5-1.567-3.5-3.5s1.567-3.5 3.5-3.5 3.5 1.567 3.5 3.5-1.567 3.5-3.5 3.5z"/></svg>
-          <span>Open to Collaborations · Nairobi</span>
+        <div class="eyebrow" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c-4.418 0-8 3.582-8 8 0 6.038 7.333 11.77 7.69 12.08.197.169.46.26.73.26s.533-.091.73-.26C12.667 21.77 20 16.038 20 10c0-4.418-3.582-8-8-8zm0 11.5c-1.933 0-3.5-1.567-3.5-3.5s1.567-3.5 3.5-3.5 3.5 1.567 3.5 3.5-1.567 3.5-3.5 3.5z"/></svg>
+          <span class="muted">Open to Collaborations · Nairobi</span>
         </div>
-
-        <h1 id="hero-title" class="headline">
-          I build production-ready apps & AI systems.
-        </h1>
-        <div class="typing-wrapper">
-          <span class="typing mono" id="typing"></span>
+        <h1><span class="headline-grad">Building the Future of Products &amp; AI.</span></h1>
+        <div class="typing" id="typing" aria-live="polite"></div>
+        <p class="sub">Crafting scalable web, mobile, and AI systems that drive innovation and growth — pragmatic design with ambitious outcomes.</p>
+        <div style="display:flex;gap:12px;margin-top:18px;flex-wrap:wrap">
+          <a class="btn btn-primary" href="#work">Explore Work</a>
+          <a class="btn btn-ghost" href="#contact">Connect</a>
         </div>
-
-        <p class="sub">
-          I design and ship products that scale — Web & Mobile, AI Concerns, and developer-first tools. I focus on simplicity, performance, and outcomes.
-        </p>
-
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#work">See My Work</a>
-          <a href="#contact" class="btn btn-secondary">Let’s Talk</a>
-        </div>
-
-        <div class="stack">
-          <strong>Stack:</strong>
-          <span class="muted small mono">React · Next.js · Flutter · TensorFlow · Python · Node · PostgreSQL · Docker</span>
-        </div>
+        <div style="margin-top:14px;color:var(--muted);font-family:var(--mono);font-weight:600">Stack: React · Next.js · Flutter · TensorFlow · Python · Node · PostgreSQL · Docker · xAI</div>
       </div>
 
-      <aside class="hero-card" aria-labelledby="card-title" role="complementary">
-        <h3 id="card-title">Hand-picked metrics</h3>
-        <div class="metrics" role="list" aria-label="Selected metrics">
-          <div class="metric" role="listitem"><strong>5+</strong><span>Products shipped</span></div>
-          <div class="metric" role="listitem"><strong>300K+</strong><span>Monthly users</span></div>
-          <div class="metric" role="listitem"><strong>7x</strong><span>Growth Wins</span></div>
+      <aside class="hero-card" role="complementary" aria-labelledby="cardTitle">
+        <h3 id="cardTitle">Key Metrics</h3>
+        <div class="metrics" role="list" aria-label="select metrics">
+          <div class="metric" role="listitem"><span>Products Launched</span><strong>5+</strong></div>
+          <div class="metric" role="listitem"><span>Users Impacted</span><strong>300K+</strong></div>
+          <div class="metric" role="listitem"><span>Growth Achieved</span><strong>7x</strong></div>
         </div>
       </aside>
-    </section>
+    </header>
 
     <!-- ABOUT -->
     <section id="about" class="card" aria-labelledby="aboutTitle">
-      <h2 id="aboutTitle">About Me</h2>
-      <div class="grid">
+      <h2 id="aboutTitle">About</h2>
+      <div class="grid" style="grid-template-columns:1fr 360px;align-items:center;gap:24px">
         <div>
-          <p class="muted">I’m Ian Henry — I craft full-stack products, machine learning pipelines, and Technological Innovations that help businesses scale. I combine UX-driven product design with pragmatic engineering: production-quality, observable, and maintainable systems.</p>
-          <ul class="muted">
-            <li><strong>Education:</strong> B.Ed. Science (Mathematics & Computer Studies) — Tom Mboya University</li>
+          <p class="muted">Ian Henry — Nairobi-based engineer focused on full-stack products, AI, and scalable systems. Passionate about building reliable, secure, and delightful products.</p>
+          <ul class="muted" style="margin-top:12px;line-height:1.8">
+            <li><strong>Education:</strong> B.Ed. Science (Mathematics &amp; Computer Studies) — Tom Mboya University</li>
             <li><strong>Location:</strong> Nairobi, Kenya</li>
-            <li><strong>Email:</strong> <a href="mailto:ianhenry000@gmail.com">ianhenry000@gmail.com</a></li>
+            <li><strong>Email:</strong> <a href="mailto:ianhenry000@gmail.com">ianhenry000@gmail.com</a> <button id="copyEmail" class="btn btn-ghost" title="Copy email">Copy</button></li>
           </ul>
         </div>
-
-        <div aria-hidden="true" style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end">
-          <div style="min-width:160px;max-width:240px;">
-            <img src="https://placehold.co/400x400/1b263b/64ffda?text=Ian+Henry&font=inter" alt="Ian Henry profile" loading="lazy">
-          </div>
-        </div>
+        <figure style="margin:0">
+          <img src="https://placehold.co/400x400/002b5b/00aaff.webp?text=Ian+Henry&font=inter" alt="Ian Henry portrait" width="400" height="400" loading="lazy" decoding="async">
+        </figure>
       </div>
     </section>
 
     <!-- WORK -->
     <section id="work" class="card" aria-labelledby="workTitle">
-      <h2 id="workTitle">Selected Work</h2>
-      <div class="projects" id="projectsGrid" aria-live="polite">
-        <!-- Project 1 -->
-        <article class="project" tabindex="0" aria-label="Ecommerce Project">
-          <div class="project-inner">
-            <img src="https://placehold.co/600x400/1b263b/64ffda?text=E-Commerce+Platform&font=inter" alt="E-commerce App preview" loading="lazy">
-            <h4>E-commerce Platform</h4>
-            <p class="muted mono small">React · Node.js · PostgreSQL</p>
-            <p class="muted" style="margin-top:8px;">Optimized checkout flow and Core Web Vitals performance.</p>
-          </div>
+      <h2 id="workTitle">Selected Projects</h2>
+      <div class="projects" id="projects">
+        <article class="project" tabindex="0" aria-label="Scalable E-commerce platform">
+          <img src="https://placehold.co/600x400/002b5b/00aaff.webp?text=E-Commerce&font=inter" alt="E-commerce preview" loading="lazy">
+          <h4>Scalable E‑Commerce Platform</h4>
+          <div class="muted">React · Node.js · PostgreSQL</div>
+          <p class="muted">Engineered high-performance checkout with 7x faster load times.</p>
         </article>
 
-        <!-- Project 2 -->
-        <article class="project" tabindex="0" aria-label="Task Manager app">
-          <div class="project-inner">
-            <img src="https://placehold.co/600x400/1b263b/64ffda?text=Task+App&font=inter" alt="Task app preview" loading="lazy">
-            <h4>Cross-platform Task App</h4>
-            <p class="muted mono small">Flutter · Firebase · Firestore</p>
-            <p class="muted" style="margin-top:8px;">Offline-first sync and end-to-end encryption on notes.</p>
-          </div>
+        <article class="project" tabindex="0" aria-label="Cross platform task manager">
+          <img src="https://placehold.co/600x400/002b5b/00aaff.webp?text=Task+App&font=inter" alt="Task app preview" loading="lazy">
+          <h4>Cross-Platform Task Manager</h4>
+          <div class="muted">Flutter · Firebase</div>
+          <p class="muted">Offline sync and secure encryption for 300K+ users.</p>
         </article>
 
-        <!-- Project 3 -->
-        <article class="project" tabindex="0" aria-label="AI Chatbot">
-          <div class="project-inner">
-            <img src="https://placehold.co/600x400/1b263b/64ffda?text=AI+Chatbot&font=inter" alt="AI Chatbot preview" loading="lazy">
-            <h4>AI Support Chatbot</h4>
-            <p class="muted mono small">TensorFlow · Transformers · Python</p>
-            <p class="muted" style="margin-top:8px;">Intent classification + response ranking for support tickets.</p>
-          </div>
+        <article class="project" tabindex="0" aria-label="AI support bot">
+          <img src="https://placehold.co/600x400/002b5b/00aaff.webp?text=AI+Chatbot&font=inter" alt="AI Chatbot preview" loading="lazy">
+          <h4>AI-Powered Support Bot</h4>
+          <div class="muted">TensorFlow · Python</div>
+          <p class="muted">Advanced NLP for intent detection and automated responses.</p>
         </article>
       </div>
     </section>
 
     <!-- SKILLS -->
     <section id="skills" class="card" aria-labelledby="skillsTitle">
-      <h2 id="skillsTitle">Core Skills</h2>
-      <div class="skills-wrap">
-        <span class="skill-chip"><strong>Product</strong><span>Strategy · Roadmaps</span></span>
-        <span class="skill-chip"><strong>Frontend</strong><span>React · Next.js</span></span>
-        <span class="skill-chip"><strong>Mobile</strong><span>Flutter · Android</span></span>
-        <span class="skill-chip"><strong>ML / AI</strong><span>TensorFlow · PyTorch</span></span>
-        <span class="skill-chip"><strong>Backend</strong><span>Node.js · Python</span></span>
-        <span class="skill-chip"><strong>Infra</strong><span>Docker · CI/CD · GCP</span></span>
+      <h2 id="skillsTitle">Core Expertise</h2>
+      <div class="skills" role="list">
+        <span class="skill" role="listitem">Product — Strategy · Scaling</span>
+        <span class="skill" role="listitem">Frontend — React · Next.js</span>
+        <span class="skill" role="listitem">Mobile — Flutter · Native</span>
+        <span class="skill" role="listitem">AI/ML — TensorFlow · xAI</span>
+        <span class="skill" role="listitem">Backend — Node · Python</span>
+        <span class="skill" role="listitem">Infra — Docker · Cloud</span>
       </div>
     </section>
 
     <!-- TESTIMONIALS -->
     <section id="testimonials" class="card" aria-labelledby="testTitle">
-      <h2 id="testTitle">What Clients Say</h2>
-      <div class="testimonial-wrap" id="testimonialsList">
-        <figure class="testimonial-card" role="group" aria-label="Jane testimonial">
-          <p>“Ian delivered beyond expectations. A reliable partner who ships fast and cares about UX.”</p>
-          <strong>Jane — Nairobi</strong>
+      <h2 id="testTitle">Client Feedback</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+        <figure class="card" style="background:transparent;padding:14px">
+          <blockquote>“Ian pushes boundaries and delivered innovative solutions ahead of schedule.”</blockquote>
+          <figcaption class="muted">Jane — Nairobi</figcaption>
         </figure>
-        <figure class="testimonial-card" role="group" aria-label="David testimonial">
-          <p>“Excellent communication, robust code, and measurable growth from his integrations.”</p>
-          <strong>David — Mombasa</strong>
+        <figure class="card" style="background:transparent;padding:14px">
+          <blockquote>“Robust, scalable code that drove real growth. A visionary engineer.”</blockquote>
+          <figcaption class="muted">David — Mombasa</figcaption>
         </figure>
-        <figure class="testimonial-card" role="group" aria-label="Linda testimonial">
-          <p>“High-quality product thinking and swift implementation. Highly recommended.”</p>
-          <strong>Linda — Kisumu</strong>
+        <figure class="card" style="background:transparent;padding:14px">
+          <blockquote>“Futuristic thinking and flawless execution. Highly endorse.”</blockquote>
+          <figcaption class="muted">Linda — Kisumu</figcaption>
         </figure>
       </div>
+    </section>
+
+    <!-- X FEED (Progressive enhancement: only loads widget if JS enabled) -->
+    <section id="x-feed" class="card" aria-labelledby="xTitle">
+      <h2 id="xTitle">Latest from X</h2>
+      <noscript class="muted">Enable JavaScript to view the live X feed.</noscript>
+      <div id="xContainer"></div>
     </section>
 
     <!-- CONTACT -->
     <section id="contact" class="card" aria-labelledby="contactTitle">
       <h2 id="contactTitle">Get In Touch</h2>
-
       <div class="contact-grid">
-        <form id="contactForm" class="form" aria-label="Contact form" action="https://formspree.io/f/xvgwdrlo" method="POST">
-          <div class="form-field">
-            <label for="name" class="small">Your name</label>
-            <input id="name" name="name" type="text" placeholder="Jane Doe" required>
-          </div>
+        <form id="contactForm" aria-label="Contact form" action="https://formspree.io/f/xvgwdrlo" method="POST">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Jane Doe" required>
 
-          <div class="form-field">
-            <label for="email" class="small">Email</label>
-            <input id="email" name="_replyto" type="email" placeholder="you@example.com" required>
-          </div>
+          <label for="email">Email</label>
+          <input id="email" name="_replyto" type="email" placeholder="you@example.com" required>
 
-          <div class="form-field">
-            <label for="message" class="small">Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="Describe your project or opportunity..." required></textarea>
-          </div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" placeholder="Let's build something innovative..." required></textarea>
 
-          <div style="display:flex;gap:10px;align-items:center;margin-top:6px">
-            <button type="submit" class="btn btn-primary" id="submitBtn" aria-live="polite">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-              Send Message
-            </button>
-            <div id="formStatus" class="small muted" aria-live="polite"></div>
+          <div style="display:flex;gap:10px;align-items:center;margin-top:12px">
+            <button type="submit" class="btn btn-primary" id="submitBtn">Send</button>
+            <div id="formStatus" aria-live="polite" class="muted small"></div>
           </div>
         </form>
 
-        <aside class="contact-aside" style="border-left: 1px solid var(--glass-border); padding-left: 32px;">
-          <div style="margin-bottom: 24px;">
-            <strong>Availability</strong>
-            <div class="muted small">Open for freelance & contract (part-time) engagements.</div>
-          </div>
-
-          <div>
+        <aside style="padding:12px">
+          <strong>Availability</strong>
+          <div class="muted">Open for high-impact projects.</div>
+          <div style="margin-top:14px">
             <strong>Quick Links</strong>
-            <ul>
-              <li><a href="https://github.com/ianhenrytech" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-              <li><a href="https://www.linkedin.com/in/ian-henry-95713b24b" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-              <li><a href="https://wa.me/254701320114" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+            <ul style="list-style:none;padding:0;margin:8px 0">
+              <li><a href="https://github.com/ianhenrytech" target="_blank" rel="noopener">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/in/ian-henry-95713b24b" target="_blank" rel="noopener">LinkedIn</a></li>
+              <li><a href="https://x.com/iannhenry003" target="_blank" rel="noopener">X (@iannhenry003)</a></li>
             </ul>
           </div>
         </aside>
       </div>
     </section>
-  </main>
-  
-  <!-- FOOTER -->
-  <footer>
-    <div class="muted small mono">
-      Designed & Built by Ian Henry · © 2025 · Nairobi
-    </div>
-    <div class="muted small" style="margin-top: 8px;">
-      <a href="#top">Back to top ↑</a>
-    </div>
-  </footer>
 
+    <footer>
+      <div class="muted">Designed &amp; Built by Ian Henry · © 2025 · Nairobi</div>
+      <div style="margin-top:8px" class="muted small"><a href="#hero">Back to Top ↑</a></div>
+    </footer>
+  </div>
 
-  <!-- Lightweight JS: menu, typing, tilt, reveal, form -->
+  <!-- Scripts (defer heavy behavior) -->
   <script>
-    /************* Utilities *************/
-    const $ = sel => document.querySelector(sel);
-    const $$ = sel => Array.from(document.querySelectorAll(sel));
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Minimal progressive JS for interactions; defer heavy external widgets until user intent.
+  (function(){
+    // Utilities
+    const el = selector => document.querySelector(selector);
+    const on = (sel, ev, fn) => document.addEventListener ? document.addEventListener(ev, e => { if (e.target && e.target.matches && e.target.matches(sel)) fn(e); }) : null;
 
-    /************* Mobile menu toggle *************/
-    const menuBtn = $('#menuToggle');
-    const navLinks = $('#navLinks');
-    if (menuBtn && navLinks) {
-      menuBtn.addEventListener('click', (e) => {
+    // Theme toggle (persist in localStorage)
+    const themeToggle = el('#themeToggle');
+    const setTheme = t => { document.documentElement.classList.toggle('light', t==='light'); themeToggle.setAttribute('aria-pressed', t==='light'); localStorage.setItem('site-theme', t); };
+    const current = localStorage.getItem('site-theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme:light)').matches ? 'light' : 'dark');
+    setTheme(current);
+    themeToggle && themeToggle.addEventListener('click', () => setTheme(document.documentElement.classList.contains('light') ? 'dark' : 'light'));
+
+    // Mobile menu toggle (simple)
+    const menuBtn = el('#menuToggle'); const nav = el('#navLinks');
+    if(menuBtn && nav){
+      menuBtn.addEventListener('click', ()=>{
         const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
         menuBtn.setAttribute('aria-expanded', String(!expanded));
-        navLinks.classList.toggle('open');
+        nav.style.display = nav.style.display === 'flex' ? '' : 'flex';
       });
     }
 
-    // Close mobile menu when link clicked
-    $$('.nav-links a').forEach(a => {
-      a.addEventListener('click', () => {
-        if (window.innerWidth <= 900 && navLinks) {
-          navLinks.classList.remove('open');
-          menuBtn && menuBtn.setAttribute('aria-expanded', 'false');
-        }
-      });
-    });
-
-    /************* Typing effect (JS, lightweight) *************/
-    (function typing() {
-      const target = $('#typing');
-      if (!target || prefersReduced) return;
-      
-      const phrases = ['AI-driven automation.', 'fast & accessible apps.', 'scalable backend systems.', 'data-informed growth.'];
-      let i = 0, j = 0, forward = true, currentPhrase = '';
-      
-      function step() {
-        currentPhrase = phrases[i];
-        if (forward) {
-          target.textContent = currentPhrase.slice(0, j + 1);
-          j++;
-          if (j === currentPhrase.length) { forward = false; setTimeout(step, 1200); return; }
-        } else {
-          target.textContent = currentPhrase.slice(0, j - 1);
-          j--;
-          if (j === 0) { forward = true; i = (i + 1) % phrases.length; setTimeout(step, 300); return; }
-        }
-        setTimeout(step, forward ? 45 : 30);
+    // Typing effect (respect reduced motion)
+    (function(){
+      const target = el('#typing');
+      if(!target || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const phrases = ['AI-powered innovations.', 'scalable web ecosystems.', 'mobile solutions for tomorrow.', 'driving exponential growth.'];
+      let i=0,j=0,forward=true;
+      function step(){
+        const cur = phrases[i];
+        target.textContent = forward ? cur.slice(0, ++j) : cur.slice(0, --j);
+        if(forward && j === cur.length){ forward = false; setTimeout(step, 1100); return; }
+        if(!forward && j === 0){ forward = true; i=(i+1)%phrases.length; setTimeout(step, 300); return; }
+        setTimeout(step, forward?40:25);
       }
       step();
     })();
 
-    /************* Simple 3D tilt for project cards *************/
-    (function tilt() {
-      if (prefersReduced) return;
-      const cards = $$('.project');
-      if (!cards.length) return;
-      
-      cards.forEach(card => {
-        const inner = card.querySelector('.project-inner');
-        if (!inner) return;
-        
-        card.addEventListener('mousemove', (e) => {
-          const rect = card.getBoundingClientRect();
-          const px = (e.clientX - rect.left) / rect.width;
-          const py = (e.clientY - rect.top) / rect.height;
-          const rx = (py - 0.5) * 10; // Reduced rotation for subtlety
-          const ry = (px - 0.5) * -10;
-          inner.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) scale(1.02)`;
-        });
-        
-        card.addEventListener('mouseleave', () => {
-          inner.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
-        });
+    // Contact form handler (progressive enhancement)
+    (function(){
+      const form = el('#contactForm'); const status = el('#formStatus'); const btn = el('#submitBtn');
+      if(!form) return;
+      form.addEventListener('submit', async e => {
+        e.preventDefault(); btn.disabled = true; status.textContent = 'Sending...';
+        try{
+          const data = new FormData(form);
+          const res = await fetch(form.action, { method:'POST', body: data, headers: { Accept: 'application/json' } });
+          if(res.ok){ status.textContent = 'Message sent!'; form.reset(); } else { status.textContent = 'Error sending.'; }
+        }catch(err){ status.textContent = 'Network error.'; }
+        setTimeout(()=>{ btn.disabled = false; status.textContent = ''; }, 3500);
       });
     })();
 
-    /************* Reveal on scroll (IntersectionObserver) *************/
-    (function reveal() {
-      if (prefersReduced) {
-        // If reduced motion, just make them all visible
-        $$('.card, .project, .testimonial-card, .skill-chip').forEach(s => s.classList.add('is-visible'));
-        return;
-      }
-      
-      const sections = $$('.card, .project, .testimonial-card, .skill-chip');
-      if (!sections.length) return;
+    // Copy email
+    const copyBtn = el('#copyEmail'); if(copyBtn){ copyBtn.addEventListener('click', async ()=>{ try{ await navigator.clipboard.writeText('ianhenry000@gmail.com'); copyBtn.textContent='Copied'; setTimeout(()=>copyBtn.textContent='Copy',1500);}catch{ copyBtn.textContent='Err'; } }); }
 
-      const io = new IntersectionObserver(entries => {
-        entries.forEach((e, i) => {
-          if (e.isIntersecting) {
-            // Add a slight delay based on index for a subtle stagger
-            setTimeout(() => {
-              e.target.classList.add('is-visible');
-            }, i % 3 * 100); // Stagger items in a row
-            io.unobserve(e.target); // Stop observing once visible
-          }
-        });
-      }, { threshold: 0.1 });
-
-      sections.forEach(s => io.observe(s));
+    // Load X widget only when container is visible (defer until user scrolls near)
+    (function(){
+      const xContainer = el('#xContainer'); if(!xContainer) return;
+      let loaded=false; const io = new IntersectionObserver(entries=>{ entries.forEach(entry=>{ if(entry.isIntersecting && !loaded){ loaded=true; const s = document.createElement('script'); s.setAttribute('async',''); s.src='https://platform.twitter.com/widgets.js'; document.body.appendChild(s); const a = document.createElement('a'); a.className='twitter-timeline'; a.href='https://twitter.com/iannhenry003'; a.textContent='Tweets by @iannhenry003'; xContainer.appendChild(a); io.disconnect(); } }); },{rootMargin:'200px'});
+      io.observe(xContainer);
     })();
 
-    /************* Contact form: Advanced Async Handler *************/
-    (function formHandler() {
-      const form = $('#contactForm');
-      if (!form) return;
-      
-      const status = $('#formStatus');
-      const btn = $('#submitBtn');
+    // Keyboard shortcut: press "e" to focus contact form (power user)
+    document.addEventListener('keydown', (ev) => { if(ev.key === 'e' && !(ev.metaKey||ev.ctrlKey||ev.altKey)){ const f = el('#email'); if(f){ f.focus(); ev.preventDefault(); } } });
 
-      async function handleSubmit(event) {
-        event.preventDefault();
-        const data = new FormData(event.target);
-        
-        // Disable button and show sending status
-        btn.disabled = true;
-        status.textContent = 'Sending...';
-        status.style.color = 'var(--text-muted)';
-
-        try {
-          const response = await fetch(event.target.action, {
-            method: form.method,
-            body: data,
-            headers: { 'Accept': 'application/json' }
-          });
-
-          if (response.ok) {
-            status.textContent = 'Message sent! Thanks.';
-            status.style.color = 'var(--accent)';
-            form.reset();
-          } else {
-            // Handle server errors (e.g., Formspree error)
-            const resData = await response.json().catch(() => ({}));
-            status.textContent = resData.errors ? resData.errors.map(e => e.message).join(', ') : 'Oops! There was a problem.';
-            status.style.color = '#f87171'; // Error red
-          }
-        } catch (error) {
-          // Handle network errors
-          console.error('Form submission error:', error);
-          status.textContent = 'Error: Network failure.';
-          status.style.color = '#f87171';
-        } finally {
-          // Re-enable button after a delay, whether success or fail
-          setTimeout(() => {
-            btn.disabled = false;
-            status.textContent = '';
-            status.style.color = 'var(--text-muted)';
-          }, 4000);
-        }
-      }
-      
-      form.addEventListener("submit", handleSubmit);
-    })();
+    // Small accessibility: animate in elements on load for non-reduced-motion
+    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){ document.querySelectorAll('.card, .project, .hero-card').forEach((n,i)=>{ n.style.opacity=0; n.style.transform='translateY(8px)'; setTimeout(()=>{ n.style.transition='opacity .6s ease, transform .6s ease'; n.style.opacity=1; n.style.transform='none'; }, 120+i*80); }); }
+  })();
   </script>
-
 </body>
 </html>
-
